@@ -177,6 +177,10 @@ disableHugoGeneratorInject = false
     name       = "SOC"
     url        = "https://csoc.fi"
   [[menu.main]]
+    identifier = "dfir"
+    name       = "DFIR"
+    url        = "https://dfir.fi"
+  [[menu.main]]
     identifier = "author"
     name       = "Author"
     url        = "https://blog.dfir.fi/about"
