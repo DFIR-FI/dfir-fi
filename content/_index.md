@@ -16,5 +16,6 @@ Please note that this is a list of companies, who provide DFIR support with one-
 | Fiarone | [https://www.fiarone.com/en/privacy_violation](https://www.fiarone.com/en/privacy_violation)
 | IBM X-Force | [https://www.ibm.com/security/services/ibm-x-force-incident-response-and-intelligence](https://www.ibm.com/security/services/ibm-x-force-incident-response-and-intelligence)
 | Nixu |[https://www.nixu.com/service/security-incident](https://www.nixu.com/service/security-incident) |
+| Fraktal | [https://www.fraktal.fi/case/digital-forensics-for-compromised-companies](https://www.fraktal.fi/case/digital-forensics-for-compromised-companies) |
 
 This list is maintained on Github. Anyone is welcome to add companies that provide DFIR and work inside of Finland.
