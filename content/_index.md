@@ -19,5 +19,6 @@ Please note that this is a list of companies, who provide DFIR support with one-
 | Fraktal | [https://www.fraktal.fi/case/digital-forensics-for-compromised-companies](https://www.fraktal.fi/case/digital-forensics-for-compromised-companies) |
 | Elisa | [https://yrityksille.elisa.fi/kyberturvapalvelut](https://yrityksille.elisa.fi/kyberturvapalvelut) |
 | WithSecure | [https://www.withsecure.com/en/solutions/incident-readiness-and-response](https://www.withsecure.com/en/solutions/incident-readiness-and-response) |
+| Truesec Oy | [https://www.truesec.com/are-you-under-attack](https://www.truesec.com/are-you-under-attack) |
 
 This list is maintained on Github. Anyone is welcome to add companies that provide DFIR and work inside of Finland.
