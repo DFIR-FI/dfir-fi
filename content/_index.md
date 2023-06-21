@@ -11,6 +11,7 @@ Please note that this is a list of companies, who provide DFIR support with one-
 |---|---|---|
 | Accenture | [https://www.accenture.com/fi-en/services/security/cyber-defense](https://www.accenture.com/fi-en/services/security/cyber-defense) |
 | CGI |[https://www.cgi.com/fi/fi/tietoturva/SOC](https://www.cgi.com/fi/fi/tietoturva/SOC) |
+| Deloitte | [https://www2.deloitte.com/fi/fi/pages/risk/solutions/kyberhairio-cyber-incident-response.html](https://www2.deloitte.com/fi/fi/pages/risk/solutions/kyberhairio-cyber-incident-response.html) |
 | Enfo | [https://insights.enfogroup.com/cybersecurity](https://insights.enfogroup.com/cybersecurity)
 | Fiarone | [https://www.fiarone.com/en/privacy_violation](https://www.fiarone.com/en/privacy_violation)
 | IBM X-Force | [https://www.ibm.com/security/services/ibm-x-force-incident-response-and-intelligence](https://www.ibm.com/security/services/ibm-x-force-incident-response-and-intelligence)
