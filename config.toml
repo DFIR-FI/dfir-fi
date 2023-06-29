@@ -26,5 +26,5 @@ theme = "provider-list"
     """
 
   [params.ad]
-    ad1 = { title = "Tietoturva­poikkeamien selvitys (DFIR)", description = "Koulutus tietoturvapoikkeamien selvitykseen ja tutkintaan. Kouluttajana Juho Jauhiainen.", button_text = "Lue lisää", button_link = "https://example.com" }
-    ad2 = { title = "Suomalainen DFIR-yhteisö", description = "Kiinnostaako suomalainen Discord-yhteiso DFIR-asiantuntijoille? Ryhmä on luotu tiedonvaihtoa varten. Liittymään pääset ratkaisemalla haasteen.", button_text = "Liity mukaan", button_link = "https://example.com" }
+    ad1 = { title = "Tietoturva­poikkeamien selvitys (DFIR)", description = "Koulutus tietoturvapoikkeamien selvitykseen ja tutkintaan. Kouluttajana Juho Jauhiainen.", button_text = "Lue lisää", button_link = "https://upload.fi/product/tietoturvapoikkeamien-selvitys-dfir/" }
+    ad2 = { title = "Suomalainen DFIR-yhteisö", description = "Kiinnostaako suomalainen Discord-yhteiso DFIR-asiantuntijoille? Ryhmä on luotu tiedonvaihtoa varten. Liittymään pääset ratkaisemalla haasteen.", button_text = "Liity mukaan", button_link = "https://files.dfir.fi/challenge/" }
