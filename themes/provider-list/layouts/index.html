@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+    <div class="jumbotron text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-md-offset-2">
+        <h1>{{ .Site.Params.index.page_title }}</h1>
+        <br>
+        <p>{{ .Site.Params.index.description | safeHTML }}</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-md-offset-2">
+                {{ $pages := sort (where .Site.Pages "Section" "providers") ".Params.company" }}
+                <table class="table table-responsive">
+                    <colgroup>
+                        <col class="col-company" />
+                        <col class="col-website" />
+                        <col class="col-added" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Website</th>
+                            <th>Added</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range $pages }}
+                            {{ if .Params.company }}
+                                <tr>
+                                    <td>{{ .Params.company }}</td>
+                                    <td><a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></td>
+                                    <td>{{ .Date.Format "2006-01-02" }}</td>
+                                </tr>
+                            {{ end }}
+                        {{ end }}
+                    </tbody>
+                </table>                
+            </div>
+        </div>
+    </div>
+
+    {{- partial "ad.html" . -}}
+
+{{ end }}
