@@ -23,29 +23,31 @@
                 
                 {{ $sortedPages := sort $sortedPages ".Params.company" }}
                 
-                <table class="table table-responsive">
-                    <colgroup>
-                        <col class="col-company" />
-                        <col class="col-website" />
-                        <col class="col-added" />
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Website</th>
-                            <th>Added</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ range $sortedPages }}
+                <div class="table-responsive">
+                    <table class="table">
+                        <colgroup>
+                            <col class="col-company" />
+                            <col class="col-website" />
+                            <col class="col-added" />
+                        </colgroup>
+                        <thead>
                             <tr>
-                                <td>{{ .Params.company }}</td>
-                                <td><a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></td>
-                                <td>{{ .Date.Format "2006-01-02" }}</td>
+                                <th>Company</th>
+                                <th>Website</th>
+                                <th>Added</th>
                             </tr>
-                        {{ end }}
-                    </tbody>
-                </table>              
+                        </thead>
+                        <tbody>
+                            {{ range $sortedPages }}
+                                <tr>
+                                    <td>{{ .Params.company }}</td>
+                                    <td><a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></td>
+                                    <td>{{ .Date.Format "2006-01-02" }}</td>
+                                </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
