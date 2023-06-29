@@ -1,0 +1,15 @@
+<div class="back"> </div>
+
+<div class="navbar">
+  <nav>
+    {{ range .Site.Params.navigation }}
+      {{ $link := .link }}
+      {{ $external := .external }}
+      {{ if $external }}
+        <a href="{{ $link }}" target="_blank">{{ .text }}</a>
+      {{ else }}
+        <a href="{{ $link }}">{{ .text }}</a>
+      {{ end }}
+    {{ end }}
+  </nav>
+</div>

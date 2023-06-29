@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center">
+        {{ $ad1 := .Site.Params.ad.ad1 }}
+        {{ $ad2 := .Site.Params.ad.ad2 }}
+        
+        <div class="col-md-4 col-md-offset-2">
+            <div class="ad">
+                <h3 class="upl">{{ $ad1.title }}</h3>
+                <p>{{ $ad1.description }}</p>
+                <a href="{{ $ad1.button_link }}" class='btn btn-upl' target='_blank'>{{ $ad1.button_text }}</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="ad">
+                <h3>{{ $ad2.title }}</h3>
+                <p>{{ $ad2.description }}</p>
+                <a href="{{ $ad2.button_link }}" class='btn' target='_blank'>{{ $ad2.button_text }}</a>
+            </div>
+        </div>
+    </div>
+</div>
