@@ -1,0 +1,97 @@
+{{ define "main" }}
+<div class="container">
+    {{ $now := now }}
+    <section class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title">DFIR {{ .Title }}</h1>
+            <p>{{ .Content }}</p>
+        </div>
+
+        <!-- Upcoming Training -->
+        <div class="col-12">
+            <h2 class="section-title">Upcoming Training</h2>
+        </div>
+        {{ $upcoming := where (where .Pages "Params.draft" "ne" true) "Params.coursedate" "ge" (time.Format "2006-01-02" $now) }}
+        {{ if gt (len $upcoming) 0 }}
+            {{ range sort $upcoming "Params.coursedate" }}
+            <div class="col-12 mb-3">
+                <div class="card blog-card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="/images/{{ .Params.listImage }}" class="card-img" alt="{{ .Title }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ .Params.courselink }}" target="_blank">{{ .Title }}</a>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a>
+                                </h6>
+                                <p class="card-text">
+                                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> When: {{ time .Params.coursedate | time.Format "2006-01-02" }}</small></br>
+                                    <small class="text-muted"><i class="fa-solid fa-coins"></i> Price: <a href="{{ .Params.courselink }}" target="_blank">{{ .Params.pricing }}</a></small></br>
+                                    <small class="text-muted"><i class="fa-solid fa-language"></i> Language: {{ .Params.language }}</small></br>
+                                    <small class="text-muted"><i class="fas fa-globe"></i> Website: <a href="{{ .Params.courselink }}" target="_blank">{{ .Params.provider }}</a></small></br>
+                                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> Published: {{ .Date.Format "2006-01-02" }}</small>
+                                </p>
+                                <p class="card-text">
+                                    {{ .Summary }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        {{ else }}
+            <div class="col-12">
+                <p>No upcoming training sessions found.</p>
+            </div>
+        {{ end }}
+
+        <!-- Past Training -->
+        <div class="col-12">
+            <h2 class="section-title-past">Past Training</h2>
+        </div>
+        {{ $past := where (where .Pages "Params.draft" "ne" true) "Params.coursedate" "lt" (time.Format "2006-01-02" $now) }}
+        {{ if gt (len $past) 0 }}
+            {{ range sort $past "Params.coursedate" "desc" }}
+            <div class="col-12 mb-3">
+                <div class="card blog-card past">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="/images/{{ .Params.listImage }}" class="card-img" alt="{{ .Title }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ .Params.courselink }}" target="_blank">{{ .Title }}</a>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 past-training-text">
+                                    By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a>
+                                </h6>
+                                <p class="card-text">
+                                    <small class="past-training-text past-old-info"><i class="fa-regular fa-calendar"></i> When: {{ time .Params.coursedate | time.Format "2006-01-02" }}</small></br>
+                                    <small class="past-training-text"><i class="fa-solid fa-coins"></i> Price: <a href="{{ .Params.courselink }}" target="_blank">{{ .Params.pricing }}</a></small></br>
+                                    <small class="past-training-text"><i class="fa-solid fa-language"></i> Language: {{ .Params.language }}</small></br>
+                                    <small class="past-training-text"><i class="fas fa-globe"></i> Website: <a href="{{ .Params.courselink }}" target="_blank">{{ .Params.provider }}</a></small></br>
+                                    <small class="past-training-text"><i class="fa-regular fa-calendar"></i> Published: {{ .Date.Format "2006-01-02" }}</small>
+                                </p>
+                                <p class="card-text">
+                                    {{ .Summary }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        {{ else }}
+            <div class="col-12">
+                <p>No past training sessions found.</p>
+            </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}

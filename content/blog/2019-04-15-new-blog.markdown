@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "[0x0] Hello World!"
+subtitle: "My very first blog post"
+date:   2019-04-14 13:00:00
+categories: [general]
+draft: false
+author: whois
+listImage: "default_post.png"
+outputs:
+  - html
+  - rss
+---
+
+I decided to start blogging because
+1. I suck at remembering stuff -> If I write it publicly down, I will most likely remember it
+2. There's no DFIR blogs in Finland (at least I don't know of them)
+3. There's never too many projects, right?
+
+My bio can be found on [about-page](/about)

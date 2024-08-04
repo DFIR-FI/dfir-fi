@@ -1,0 +1,20 @@
+<header>
+    <div class="menu">
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <nav class="nav-links" id="nav-links">
+            {{ range .Site.Menus.main }}
+                {{ if eq .Name "Home" }}
+                    <a href="{{ .URL }}" class="logo">
+                        <img src="{{ "images/logo.png" | relURL }}" alt="Logo">
+                    </a>
+                    <div class="separator"></div>
+                {{ else }}
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+            {{ end }}
+        </nav>
+        <div class="rss-link">
+            <a href="/rss.xml"><i class="fa fa-rss"></i></a>
+        </div>
+    </div>
+</header>

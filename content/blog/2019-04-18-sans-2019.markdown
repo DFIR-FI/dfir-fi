@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "[0x1] SANS 2019 & BSides Orlando"
+subtitle: "Bsides Orland, FOR610 and DFIR Netwars"
+date:   2019-04-18 09:00:00
+categories: [training, general]
+draft: false
+author: whois
+listImage: "bsides_orlando.jpeg"
+---
+
+![Bsides Orlando](/images/blog/IMG_9079.JPG)
+
+Few weeks ago I left cold Finland and headed to Orlando to attend SANS FOR610 (Reverse-Engineering Malware). After signing up and buying flight tickets, I noticed that BSides Orlando was held just few days before the course started. I though "What the hell" and bought a ticket to that event as well. BSides is [Disobey](https://disobey.fi) (Finnish hacking/cyber security event) like event and has talks, workshops, CTF, soldering station etc...
+
+BSides was held at Full Sail University near Orlando. I arrived around 8:30 AM and the queue was really long already. Finally, around 9:15 AM, I managed to get in and see [Ian Coldwater's](https://twitter.com/IanColdwater) keynote about DevSecOps. The talk was fun and I found out that Ian thinks that the root cause of poor software security is lack of communication between developers and the security folks. After the keynote, I decided to go and see [Wes Lambert's](https://twitter.com/therealwlambert) talk Panning for Gold(en Artifacts). The talk was about [Strelka](https://github.com/Illumina/strelka) and [Security Onion](https://securityonion.net/) and how to use them in real-time file analysis on networks.
+
+After the first two talks, I spent some time playing the CTF. CTF was kinda typical and had various categories. I worked two tasks under the scripting skills-tag and they were quite fun. I would have loved to spend more time playing the CTF but I wanted to see Office 365 Incident Response talk by [Alex Parsons](https://twitter.com/ParsonsProject). This was my favourite talk in the event - I got pretty neat tool tricks to take home and try out in real world scenarios. For example the tool [HAWK](https://github.com/Canthv0/hawk) to gather O365 logs for forensic examination.
+
+The last talk I saw before I had to leave the venue was "What We Do In the Shadows" by Timothy Kusajtys. The talk was about OPSEC and turned out to be really funny. The level of OSPEC and tin foil in this presentation was quite high and maybe little too much for me... The event also had workshops and a soldering station where you were able to attach screens and stuff to your badge which I did not have time to attend.
+
+For all thinking if they should attend BSides: You should. I would not recommend to travel anywhere only for that but if you are around at the time, it is definitely worth of attending. Great talks, great things to do, great fun!
+
+![FOR610 Course material](/images/blog/bookz.jpg)
+
+After BSides, I attended SANS 2019-event and FOR610 by [Lenny Zeltser](https://twitter.com/lennyzeltser). SANS FOR610 is a course which "explores malware analysis tools and techniques in depth". Lenny is an author of the course so I felt really excited him being the teacher.
+
+The course week was brutal... Lot of assembly from Monday to Friday from 9:00 AM to 5:30 PM. As this was my third SANS course, I already knew that the week is going to be heavy and I decided not to go to bonus talks held in the evening through Monday to Wednesday. Instead of seeing bonus talks, I spent evenings to iterate topics of the day especially as I did not feel comfortable with my assembly "skills" when the course started. The course material was really good and easy to follow. The labs dealt the daily course topics and the material was super interesting. Of course, I might be biased to say as I am highly interested getting into analyzing malware.
+
+The sixth day of the course was individual CTF competition, where we were given a batch of malware for analysis. The CTF had modules of multiple questions on three different levels. To answer the questions, you either had to debug the malware, disassemble it and analyze the code or do behavior analysis by running the malware. I felt the most confident working with IDA so I focussed on the questions which required disassembling and static reversing. My strategy worked quite well as the questions were worth of big scores and I ended up winning the REM challenge coin by finishing 4th!!!
+
+The course was super and Lenny was great teacher! Here's a picture of me and him after the CTF competition. Thanks again Lenny!
+
+![Lenny and a fanboy](/images/blog/IMG_9243.JPG)
+
+Albeit I wanted to focus on the FOR610 course, I decided to play DFIR NetWars on Thursday and Friday evenings. SANS describes DFIR NetWars as following: "DFIR NetWars is an incident simulator packed with a vast amount of forensic, malware analysis, threat hunting, and incident response challenges designed to help you gain proficiency without the risk associated when working real life incidents". In a nutshell, we were given 60 Gigs of forensic evidence and bunch of questions on what had happened. The competition started on Thursday around 6:30 PM and pause at 10:00 PM. Of course, as the evidence was given to us, we were able to process the data all night long. I started really well in the competition and I was leading the competition after one hour of playing. As I wasn't that familiar with iOS, Android and Mac OS forensics, I started to struggle. I didn't have a clue what is the best practice to do forensic examination on these operating systems so I decided to write a little python script, that parses SQLite and plist files to single CSV during the competition. After this, I was able to grep stuff out of the CSV. :D At the time the game paused, I was 3rd and decided to continue working on the evidence all night long.
+
+![DFIR NetWars scoreboard after the first night](/images/blog/IMG_9200.JPG)
+
+Next day the DFIR NetWars continued around 6:30 PM. I started to submit answers I found during the night. After I had finished submitting, I was happy to see I was 2nd. After 20 minutes or so, I noticed that everyone else also seemed to have worked all night and I started falling down the scoreboard. As I was feeling quite tired, I couldn't extort myself and spurt back to the scoreboard. The scoreboard got hidden 30 minutes before the game closed and at the time, I was 5th which is the last place, who would win the NetWars coin. I did get few points before the game closed and when the scoreboard was revealed, I was 6th individual which basically means I was the first one who doesn't get the coin... I felt quite pissed as my score was just two points below the next individual and before the 30 minute blackout, I was significantly ahead of the next individual... Lucky for me, the 5th player did forfeit after declaration of result and I was promoted to 5th place.
+
+The DFIR NetWars experience was great and I can definitely recommend it to everyone, who is working in DFIR. Can't wait to participate in other NetWars competitions as well someday.
+
+![Lethal forensicator coins](/images/blog/IMG_9349.JPG)
+

@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="container">
+    <section class="row">
+        <div class="col-12">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Content }}</p>
+            <h1>Author(s)</h1>
+            <div class="row">
+                {{ $pages := where (.Pages.ByWeight) ".Params.draft" "!=" true }}
+                {{ range $pages }}
+                <div class="col-12 mb-4">
+                    <div class="card h-100 author-card">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <img src="{{ .Params.photo | relURL }}" class="card-img author-photo" alt="{{ .Params.name }}">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title author-name">
+                                        <a href="{{ .Permalink }}" class="name-link">{{ .Params.name }}</a>
+                                    </h5>
+                                    <h6 class="card-text author-title text-muted">
+                                        {{ .Params.title }}
+                                    </h6>
+                                    <div class="social-icons">
+                                        {{ with .Params.twitter }}<a href="https://twitter.com/{{ . }}" target="_blank"><i class="fab fa-x-twitter"></i></a>{{ end }}
+                                        {{ with .Params.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank"><i class="fab fa-linkedin"></i></a>{{ end }}
+                                        {{ with .Params.github }}<a href="https://github.com/{{ . }}" target="_blank"><i class="fab fa-github"></i></a>{{ end }}
+                                        {{ with .Params.credly }}<a href="{{ . }}" target="_blank"><i class="fas fa-certificate"></i></a>{{ end }}
+                                        {{ with .Params.discord }}<a href="https://discord.com/users/{{ . }}" target="_blank"><i class="fab fa-discord"></i></a>{{ end }}
+                                        {{ with .Params.website }}<a href="{{ . }}" target="_blank"><i class="fas fa-globe"></i></a>{{ end }}
+                                        {{ with .Params.email }}<a href="mailto:{{ . }}"><i class="fas fa-envelope"></i></a>{{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+</div>
+{{ end }}

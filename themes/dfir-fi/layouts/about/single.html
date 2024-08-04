@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 author-box text-center">
+            <div class="author-content">
+            <img src="{{ .Params.photo | relURL }}" class="img-fluid rounded-circle" alt="{{ .Params.name }}">
+            <h1>{{ .Params.name }}</h1>
+            <p>{{ .Params.title }}</p>
+            <div class="social-icons">
+                {{ with .Params.twitter }}<a href="https://twitter.com/{{ . }}" target="_blank"><i class="fab fa-x-twitter"></i></a>{{ end }}
+                {{ with .Params.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank"><i class="fab fa-linkedin"></i></a>{{ end }}
+                {{ with .Params.github }}<a href="https://github.com/{{ . }}" target="_blank"><i class="fab fa-github"></i></a>{{ end }}
+                {{ with .Params.credly }}<a href="{{ . }}" target="_blank"><i class="fas fa-certificate"></i></a>{{ end }}
+                {{ with .Params.discord }}<a href="https://discord.com/users/{{ . }}" target="_blank"><i class="fab fa-discord"></i></a>{{ end }}
+                {{ with .Params.website }}<a href="{{ . }}" target="_blank"><i class="fas fa-globe"></i></a>{{ end }}
+                {{ with .Params.email }}<a href="mailto:{{ . }}"><i class="fas fa-envelope"></i></a>{{ end }}
+            </div>
+            <div class="introtext">
+                {{ .Params.introtext }}
+            </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="content">{{ .Content }}</div>
+        </div>
+    </div>
+</div>
+{{ end }}

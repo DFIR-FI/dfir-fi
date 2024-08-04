@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "[0x00] Hello World!"
+subtitle: "My very first blog post"
+date:   2019-04-14 13:00:00
+categories: [general]
+---
+
+{{ template "_internal/disqus.html" . }}

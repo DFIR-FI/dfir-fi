@@ -1,0 +1,54 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'DFIR Finland'
+theme = "dfir-fi"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    name = "RSS"
+    mediaType = "application/rss+xml"
+    baseName = "rss"
+    isPlainText = true
+    rel = "alternate"
+
+[params]
+  mainSections = ["blog"]
+  company_name = "Juho Jauhiainen"
+  company_link = "/about/whois"
+
+[[menu.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Contribute"
+  pageRef = "/contribute"
+  weight = 11
+
+[[menu.main]]
+  name = "Blog"
+  pageRef = "/blog"
+  weight = 20
+
+[[menu.main]]
+  name = "Training"
+  pageRef = "/training"
+  weight = 20
+
+[[menu.main]]
+  name = "Community"
+  pageRef = "/community"
+  weight = 21
+
+[[menu.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 40

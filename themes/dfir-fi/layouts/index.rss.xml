@@ -1,0 +1,22 @@
+{{- $.Scratch.Add "feedItems" slice -}}
+{{- range where (where .Site.RegularPages "Section" "blog") "Params.draft" "ne" true -}}
+    {{- $.Scratch.Add "feedItems" (dict "title" .Title "link" .Permalink "description" (.Summary | safeHTML | replaceRE "]]>" "]]]]><![CDATA[>" ) "date" .Date) -}}
+{{- end -}}
+{{- $feedItems := $.Scratch.Get "feedItems" -}}
+
+<rss version="2.0">
+    <channel>
+        <title>{{ .Site.Title | htmlEscape }} - Blog</title>
+        <link>{{ .Site.BaseURL | htmlEscape }}</link>
+        <description>{{ .Site.Params.description | htmlEscape }}</description>
+        <language>{{ .Site.LanguageCode | htmlEscape }}</language>
+        {{ range $feedItems }}
+        <item>
+            <title>{{ .title | htmlEscape }}</title>
+            <link>{{ .link | htmlEscape }}</link>
+            <description><![CDATA[{{ .description }}]]></description>
+            <pubDate>{{ .date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
+        </item>
+        {{ end }}
+    </channel>
+</rss>

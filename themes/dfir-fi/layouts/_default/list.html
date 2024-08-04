@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="container">
+    <section class="row">
+        <div class="col-12 text-center"> <!-- Added a container div with centering classes -->
+            <h1 class="page-title">{{ .Title }} blog posts</h1>
+        </div>
+        {{ $pages := where (.Pages.ByWeight) ".Params.draft" "!=" true }}
+        {{ range $pages }}
+        <div class="col-12 mb-3">
+            <div class="card blog-card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="/images/blog/{{ .Params.listImage }}" class="card-img" alt="{{ .Title }}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a>
+                            </h6>
+                            <p class="card-text">
+                                <small class="text-muted"><i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} | </small>
+                                <small class="text-muted"><i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}</small>
+                            </p>
+                            <p class="card-text">
+                                {{ .Summary }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}

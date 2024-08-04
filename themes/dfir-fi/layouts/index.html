@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Content }}</p>
+        </div>
+    </div>
+    </br>
+    </br>
+    <div class="row">
+        <div class="col-12">
+            {{ $pages := sort (where .Site.Pages "Section" "providers") ".Params.company" }}
+            {{ $sortedPages := slice }}
+            {{ range $pages }}
+                {{ if .Params.company }}
+                    {{ $sortedPages = $sortedPages | append . }}
+                {{ end }}
+            {{ end }}
+            {{ $sortedPages := sort $sortedPages ".Params.company" }}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Website</th>
+                        <th class="no-wrap">Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range $sortedPages }}
+                    <tr>
+                        <td class="no-wrap"><strong>{{ .Params.company }}</strong></td>
+                        <td class="allow-wrap"><a href="{{ .Params.website }}" target="_blank">{{ .Params.website }}</a></td>
+                        <td class="no-wrap">{{ .Date.Format "2006-01-02" }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{ end }}

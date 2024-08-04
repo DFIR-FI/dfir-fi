@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!-- Title -->
+            <h1>{{ .Title }}</h1>
+            <h2 class="subtitle">{{ .Params.subtitle }}</h2>
+
+            <!-- Tags -->
+            <div class="tags">
+                Tags «
+                {{ range .Params.categories }}
+                <a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+                »
+            </div>
+
+            <!-- Author Information Box -->
+            {{ $author := site.GetPage (print "about/" .Params.author) }}
+            <div class="author-info">
+                <div class="author-photo">
+                    <img src="{{ .Site.BaseURL }}{{ $author.Params.photo }}" alt="{{ $author.Params.name }}">
+                </div>
+                <div class="author-details">
+                    <p><strong><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></strong></p>
+                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} | </small>
+                    <small class="text-muted"><i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}</small>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">{{ .Content }}</div>
+        </div>
+    </div>
+</div>
+{{ end }}
