@@ -18,7 +18,7 @@ git remote add upstream https://github.com/dfir-fi/dfir-fi
 
 3. Add new DFIR provider, example:
 ```
-hugo new content/providers/accenture.md
+hugo new --kind provider content/providers/accenture.md
 ```
 
 4. Add company name and website to the created MD file, example:
