@@ -62,6 +62,7 @@ Training and presentations can also be ordered through:
 
 | Certification | Description                                           | Issued     |
 |---------------|-------------------------------------------------------|------------|
+| [GCFE](https://www.credly.com/badges/ed03d764-9f45-4134-89c6-78b9fee24097)          | GIAC Certified Forensic Examiner (GCFE)               | 08/2024    |
 | [GSP](https://www.credly.com/badges/a9eb5b47-43ae-4116-87c3-4263a7f17be1)           | GIAC Security Professional                            | 10/2023    |
 | [GX-FA](https://www.credly.com/badges/e88699d2-50d1-45fb-86e3-0ebf62f00895)         | GIAC Experienced Forensic Analyst                     | 10/2023    |
 | [GX-IH](https://www.credly.com/badges/bebb1a07-ba58-443f-bdb5-1d0b9fa120ea)         | GIAC Experienced Incident Handler Certification       | 08/2023    |
