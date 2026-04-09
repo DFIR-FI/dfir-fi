@@ -25,7 +25,7 @@
                                 <small class="text-muted"><i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}</small>
                             </p>
                             <p class="card-text">
-                                {{ .Summary }}
+                                {{ .Summary | plainify | truncate 200 }}
                             </p>
                         </div>
                     </div>
