@@ -1,0 +1,6 @@
+{{ $user := .Get "user" }}
+{{ $id := .Get "id" }}
+<blockquote class="twitter-tweet" data-dnt="true">
+  <a href="https://x.com/{{ $user }}/status/{{ $id }}">Tweet by @{{ $user }}</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
