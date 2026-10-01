@@ -10,13 +10,13 @@ website: https://linktr.ee/jauhiainen
 github: who1s
 credly: https://www.credly.com/users/jauhiainen/badges
 discord: 376792489027436546
-email: juho@dfir.fi
+email: juho@0j.fi
 draft: false
-introtext: Juho works on DFIR globally and is responsible for leading a team in the European region responsible for analysing malware and threat intelligence collected from DFIR engagements. In addition to his current role, he has 10 years of experience in DFIR and malware analysis for a variety of private and public sector organizations, including The National Cyber Security Centre Finland (NCSC-FI). Juho is the holder of CISSP, GSP, OSCP and other acronyms. 
+introtext: Juho works as a contractor / threat detection engineer for a mobile forensics company. In addition to his current role, he has over 10 years of experience in DFIR and malware analysis for a variety of private and public sector organizations, including Accenture and The National Cyber Security Centre Finland (NCSC-FI). Juho is the holder of CISSP, GSP, OSCP and other acronyms. 
 ---
 ## Services
 
-Since 2019, I have been giving presentations and training sessions. The presentations and trainings have covered everything from security basics to technical descriptions of malware or how to protect against security breaches. At security conferences in Finland and abroad, I generally represent my employers but as a side job I sell talks and trainings to organisations. If you are interested in training or presentations (no consulting), please contact me by email (juho[at]dfir.fi) and we can agree on further details.
+Since 2019, I have been giving presentations and training sessions. The presentations and trainings have covered everything from security basics to technical descriptions of malware or how to protect against security breaches. At security conferences in Finland and abroad, I generally represent my employers but as a side job I sell talks and trainings to organisations. If you are interested in training or presentations (no consulting), please contact me by email (juho[at]0j.fi) and we can agree on further details.
 
 In general, I charge according to the price list below. Travel expenses (kilometres, hotel if applicable) will be added to the amount.
 
@@ -42,16 +42,16 @@ In general, I charge according to the price list below. Travel expenses (kilomet
 
 ---- 
 
-Training and presentations can also be ordered through:
+Presentations can also be ordered through:
 - [MySpeaker](https://myspeaker.fi/puhujat/juho-jauhiainen/)
-- [Upload](https://upload.fi/product/tietoturvapoikkeamien-selvitys-dfir/)
-- [Haction](https://www.haction.fi/forensiikka)
 
 ## Employment history
 
 | Employer           | Main responsibilities                       | Period          |
 |--------------------|--------------------------------------------|-----------------|
-| [Accenture](https://www.accenture.com/fi-en/services/cybersecurity/cyber-resilience)          | DFIR, CTI, Malware analysis, Team lead     | 02/2022->       |
+| [DataFlow Forensics](https://df-f.com/) | Threat Detectiong Engineer (contractor) | 07/2026->       |
+| [0J Consulting](https://0j.fi) | Self-Employed Entrepreneur  | 07/2026->       |
+| [Accenture](https://www.accenture.com/fi-en/services/cybersecurity/cyber-resilience)          | DFIR, CTI, Malware analysis, Team lead     | 02/2022-07/2026 |
 | [NCSC-FI](https://www.kyberturvallisuuskeskus.fi/en/homepage)            | Malware analysis, public speaking, DFIR    | 01/2021-02/2022 |
 | [Nixu](https://www.nixu.com/service/security-incident)               | DFIR, Malware analysis                     | 07/2019-12/2020 |
 | [Elisa Santa Monica](https://www.elisasantamonica.fi/en/) | SOC manager, DFIR, CTI, Malware analysis   | 09/2018-06/2019 |
