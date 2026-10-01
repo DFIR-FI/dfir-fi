@@ -11,6 +11,20 @@
     <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    {{- with site.Params.sisterSite }}
+    <script>
+        /* Arriving from the sister site: play the glitch-in (see .arriving in style.css) */
+        (function () {
+            try {
+                var from = new URL(document.referrer).host.replace(/^www\./, '');
+                var sister = {{ (urls.Parse .url).Host | strings.TrimPrefix "www." }};
+                if (from === sister && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.documentElement.classList.add('arriving');
+                }
+            } catch (e) { /* no or invalid referrer */ }
+        })();
+    </script>
+    {{- end }}
 </head>
 <body>
     {{ partial "header.html" . }}
