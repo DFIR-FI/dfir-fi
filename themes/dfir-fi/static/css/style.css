@@ -31,7 +31,7 @@
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, figure {
-    margin: 0 0 1rem;
+    margin: 0 0 1.1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -85,8 +85,8 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 2.5rem;
 }
 
-.page-head .lede {
-    margin-top: 1rem;
+.page-head h1 {
+    margin-bottom: 0.5em;
 }
 
 .lede {
@@ -100,13 +100,17 @@ h1, h2, h3, h4, h5, h6,
 .prose,
 .lede,
 .post-head,
-.profile-head + .lede {
+main p,
+main li,
+main blockquote,
+main h1,
+main h2,
+main h3,
+main pre {
     max-width: var(--measure);
 }
 
-.prose {
-    line-height: 1.75;
-}
+
 
 .prose h3 {
     margin-top: 2rem;
@@ -138,7 +142,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
