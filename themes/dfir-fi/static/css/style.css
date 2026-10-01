@@ -14,6 +14,9 @@
                  var(--grey)    75% 100%);
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
             Arial, sans-serif;
+    /* Smooth magenta-green-cyan glow used for accents and hover bars */
+    --glow:    linear-gradient(180deg, var(--magenta), var(--green), var(--cyan));
+    --glow-x:  linear-gradient(90deg, var(--magenta), var(--green), var(--cyan));
     --page: 1060px;  /* one page width for every page, header and footer */
     --measure: 75ch; /* comfortable line length for long-form text */
     --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
@@ -43,9 +46,17 @@ img {
 }
 
 blockquote {
-    padding-left: 1rem;
-    border-left: 3px solid var(--magenta);
+    position: relative;
+    padding-left: 1.25rem;
     color: var(--grey);
+}
+
+blockquote::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--glow);
 }
 
 hr {
@@ -204,7 +215,7 @@ body {
     position: absolute;
     left: 0.75rem; right: 0.75rem; bottom: 0.15rem;
     height: 2px;
-    background: var(--magenta);
+    background: var(--glow-x);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease;
@@ -221,10 +232,6 @@ body {
 
 .nav-links a.active {
     color: var(--ink);
-}
-
-.nav-links a.active::after {
-    background: var(--green);
 }
 
 .nav-links .rss-link {
@@ -386,6 +393,25 @@ a:hover {
     background-color: rgba(122, 141, 139, 0.06);
 }
 
+/* Glow bar on the left of a hovered table row */
+.data-table td:first-child {
+    position: relative;
+}
+
+.data-table td:first-child::before {
+    content: "";
+    position: absolute;
+    left: -1px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--glow);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.data-table tbody tr:hover td:first-child::before {
+    opacity: 1;
+}
+
 .data-table tbody tr:hover {
     background-color: rgba(0, 154, 174, 0.08);
 }
@@ -489,6 +515,20 @@ footer.footer {
     height: 3px;
     background: var(--stripe);
     z-index: 1;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    left: -1px; top: 2px; bottom: -1px;
+    width: 2px;
+    background: var(--glow);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
 }
 
 .card {
@@ -639,7 +679,7 @@ footer.footer {
     position: absolute;
     left: 0; top: -1px; bottom: -1px;
     width: 2px;
-    background: linear-gradient(180deg, var(--magenta), var(--green), var(--cyan));
+    background: var(--glow);
     opacity: 0;
     transition: opacity 0.2s ease;
 }
@@ -845,9 +885,10 @@ a.chip:hover {
 }   
 
 pre {
-    background: rgba(122, 141, 139, 0.06);
+    /* glow edge on the left, faint panel behind */
+    background: var(--glow) left / 2px 100% no-repeat, rgba(122, 141, 139, 0.06);
     border: 1px solid var(--line);
-    border-left: 2px solid var(--cyan);
+    border-left: 0;
     padding: 1rem 1.25rem;
     overflow-x: auto;
     font-size: 0.85rem;
