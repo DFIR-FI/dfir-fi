@@ -1,5 +1,7 @@
 name: CI
-on: push
+on:
+  push:
+    branches: [main] # only main deploys; feature/bot branches never publish
 
 jobs:
   deploy:
