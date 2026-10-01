@@ -301,8 +301,12 @@ body {
     background: var(--green);
 }
 
-.nav-links .rss-link {
+/* Sister site and RSS sit together at the right end of the menu */
+.nav-links .sister-link {
     margin-left: auto;
+}
+
+.nav-links .rss-link {
     color: var(--grey);
     font-size: 0.95rem;
 }
@@ -377,7 +381,7 @@ body {
         left: 0; right: auto; width: 2rem;
     }
 
-    .nav-links .rss-link {
+    .nav-links .sister-link {
         margin-left: 0;
     }
 }
@@ -989,6 +993,55 @@ code {
     color: var(--green);
 }
 
+/* Sister-site transition: a full-screen overlay of glitch bands.
+   html.leaving  - set on click, covers the page before navigating away
+   html.arriving - set on load when coming from the sister site, reveals it */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    pointer-events: none;
+    opacity: 0;
+    background:
+        repeating-linear-gradient(180deg,
+            var(--magenta) 0 3px, transparent 3px 46px,
+            var(--green) 46px 48px, transparent 48px 97px,
+            var(--cyan) 97px 100px, transparent 100px 150px),
+        #000;
+}
+
+html.leaving body::after {
+    animation: sister-out 0.32s steps(1) forwards;
+}
+
+html.arriving body::after {
+    opacity: 1;
+    animation: sister-in 0.36s steps(1) forwards;
+}
+
+html.leaving .site-header,
+html.leaving main {
+    animation: logo-jitter 0.32s steps(1) infinite;
+}
+
+@keyframes sister-out {
+    0%   { opacity: 1; clip-path: inset(30% 0 60% 0); transform: translateX(-12px); }
+    20%  { opacity: 1; clip-path: inset(60% 0 22% 0); transform: translateX(10px); }
+    40%  { opacity: 1; clip-path: inset(8% 0 55% 0);  transform: translateX(-6px); }
+    60%  { opacity: 1; clip-path: inset(0 0 25% 0);   transform: none; }
+    80%  { opacity: 1; clip-path: inset(0); }
+    100% { opacity: 1; clip-path: inset(0); background: #000; }
+}
+
+@keyframes sister-in {
+    0%   { opacity: 1; clip-path: inset(0); background: #000; }
+    25%  { opacity: 1; clip-path: inset(0 0 30% 0); }
+    50%  { opacity: 1; clip-path: inset(10% 0 50% 0); transform: translateX(8px); }
+    75%  { opacity: 1; clip-path: inset(62% 0 25% 0); transform: translateX(-10px); }
+    100% { opacity: 0; clip-path: inset(0); transform: none; }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -996,5 +1049,10 @@ code {
     *::after {
         transition: none !important;
         animation: none !important;
+    }
+
+    /* Never leave the transition overlay covering the page */
+    html.arriving body::after {
+        opacity: 0;
     }
 }
