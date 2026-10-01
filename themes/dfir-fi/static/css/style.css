@@ -39,12 +39,22 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #3f3d47;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--line);
     padding: 10px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+}
+
+/* 0j glitch stripe along the top edge */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--stripe);
 }
 
 .menu {
@@ -57,7 +67,11 @@ header {
     display: none;
     font-size: 30px;
     cursor: pointer;
-    color: #cdb27b;
+    color: var(--ink);
+}
+
+.hamburger:hover {
+    color: var(--magenta);
 }
 
 .nav-links {
@@ -80,20 +94,21 @@ header {
 }
 
 .nav-links .separator {
-    border-left: 1px dashed #8b7d73;
+    border-left: 1px dotted var(--grey);
     height: 40px; /* Match logo height */
 }
 
 .nav-links a {
-    color: #cdb27b;
+    color: var(--ink);
     text-decoration: none;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #8b7d73;
-    background-color: #3f3d47;
+    border: 1px solid var(--line);
+    background-color: transparent;
     height: 45px;
+    letter-spacing: 0.08em;
 }
 
 .nav-links a.logo {
@@ -101,8 +116,14 @@ header {
 }
 
 .nav-links a:hover {
-    background-color: #8b7d73;
+    color: var(--magenta);
+    border-color: var(--magenta);
+    background-color: rgba(238, 2, 165, 0.08);
     text-decoration: none;
+}
+
+.nav-links a.logo:hover {
+    background-color: transparent;
 }
 
 .rss-link {
@@ -112,20 +133,20 @@ header {
 }
 
 .rss-link a {
-    color: #cdb27b;
+    color: var(--green);
     text-decoration: none;
     padding: 10px 20px; /* Adjust padding to match the size */
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #3f3d47;
+    background-color: transparent;
     height: 100%; /* Ensure it fills the parent height */
     box-sizing: border-box; /* Include padding and border in height */
 }
 
 .rss-link a:hover {
-    background-color: #8b7d73;
+    color: var(--magenta);
     text-decoration: none;
 }
 
@@ -142,7 +163,8 @@ header {
         position: absolute;
         top: 50px;
         left: 0;
-        background-color: #3f3d47;
+        background-color: var(--bg);
+        border-bottom: 1px solid var(--line);
     }
 
     .nav-links a {
