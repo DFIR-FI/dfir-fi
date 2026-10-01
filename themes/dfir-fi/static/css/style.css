@@ -197,6 +197,7 @@ body {
 
 .nav-links a {
     position: relative;
+    font-weight: normal;
     padding: 0.5rem 0.75rem;
     color: var(--grey);
     border-bottom: 0;
@@ -212,7 +213,7 @@ body {
     position: absolute;
     left: 0.75rem; right: 0.75rem; bottom: 0.15rem;
     height: 2px;
-    background: var(--magenta);
+    background: var(--cyan);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease;
@@ -237,7 +238,7 @@ body {
 
 .nav-links .rss-link {
     margin-left: auto;
-    color: var(--green);
+    color: var(--grey);
     font-size: 0.95rem;
 }
 
@@ -246,7 +247,7 @@ body {
 }
 
 .nav-links .rss-link:hover {
-    color: var(--magenta);
+    color: var(--cyan);
 }
 
 .hamburger {
@@ -346,15 +347,17 @@ h3, h4, h5, h6 {
     color: var(--cyan);
 }
 
+/* Quiet links: bold ink, no underline, cyan on hover (footer keeps 0j green) */
 a {
-    color: var(--green);
+    color: var(--ink);
+    font-weight: 600;
     text-decoration: none;
-    border-bottom: 1px solid rgba(75, 197, 0, 0.4);
+    border-bottom: 0;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--magenta);
-    border-bottom-color: var(--magenta);
+    color: var(--cyan);
     text-decoration: none;
 }
 
@@ -474,6 +477,17 @@ footer.footer {
     flex-shrink: 0;
 }
 
+.footer a {
+    color: var(--green);
+    font-weight: normal;
+    border-bottom: 1px solid rgba(75, 197, 0, 0.4);
+}
+
+.footer a:hover {
+    color: var(--magenta);
+    border-bottom-color: var(--magenta);
+}
+
 .footer .mark-link {
     border-bottom: 0;
     line-height: 0;
@@ -572,12 +586,12 @@ footer.footer {
 
 .card-title,
 .card-title a {
-    color: var(--cyan);
+    color: var(--ink);
     border-bottom: 0;
 }
 
 .card-title a:hover {
-    color: var(--magenta);
+    color: var(--cyan);
 }
 
 .card-text {
@@ -644,7 +658,7 @@ footer.footer {
 }
 
 .author-card .author-name .name-link:hover {
-    color: var(--magenta);
+    color: var(--cyan);
 }
 
 .author-card .author-title {
@@ -743,11 +757,12 @@ footer.footer {
 }
 
 a.chip {
+    font-weight: normal;
     border-bottom: 1px solid var(--line);
 }
 
 a.chip:hover {
-    border-color: var(--magenta);
+    border-color: var(--cyan);
 }
 
 @media (max-width: 600px) {
@@ -827,6 +842,7 @@ a.chip:hover {
 
 .back-link {
     display: inline-block;
+    font-weight: normal;
     margin-bottom: 1.25rem;
     font-size: 0.8rem;
     color: var(--grey);
