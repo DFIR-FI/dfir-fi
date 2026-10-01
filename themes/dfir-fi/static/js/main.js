@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.getElementById('nav-links');
 
     hamburger.addEventListener('click', function () {
-        navLinks.classList.toggle('active');
+        const open = navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', open);
     });
 });

@@ -1,20 +1,24 @@
 <header class="site-header">
     <div class="menu">
-        <div class="hamburger" id="hamburger">&#9776;</div>
+        {{ $page := . }}
+        {{ range .Site.Menus.main }}
+            {{ if eq .Name "Home" }}
+                <a href="{{ .URL }}" class="logo" aria-label="DFIR-FI home">
+                    <img src="{{ "images/logo.png" | relURL }}" alt="DFIR-FI">
+                </a>
+            {{ end }}
+        {{ end }}
+        <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <nav class="nav-links" id="nav-links">
             {{ range .Site.Menus.main }}
-                {{ if eq .Name "Home" }}
-                    <a href="{{ .URL }}" class="logo">
-                        <img src="{{ "images/logo.png" | relURL }}" alt="Logo">
-                    </a>
-                    <div class="separator"></div>
-                {{ else }}
-                    <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ if ne .Name "Home" }}
+                    {{ $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
+                    <a href="{{ .URL }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a>
                 {{ end }}
             {{ end }}
+            <a href="/rss.xml" class="rss-link" aria-label="RSS feed"><i class="fa fa-rss"></i></a>
         </nav>
-        <div class="rss-link">
-            <a href="/rss.xml"><i class="fa fa-rss"></i></a>
-        </div>
     </div>
 </header>

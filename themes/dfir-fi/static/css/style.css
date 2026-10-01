@@ -98,15 +98,15 @@ body {
     text-align: center;
 }
 
-/* Header and Navigation */
+/* Header and Navigation: sticky, translucent, plain links */
 .site-header {
-    background-color: var(--bg);
-    border-bottom: 1px solid var(--line);
-    padding: 10px;
-    position: fixed;
-    width: 100%;
+    position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
 }
 
 /* 0j glitch stripe along the top edge */
@@ -114,138 +114,162 @@ body {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 2px;
     background: var(--stripe);
 }
 
 .menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    max-width: 1100px;
+    height: 64px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--ink);
+.menu .logo {
+    border-bottom: 0;
+    line-height: 0;
 }
 
-.hamburger:hover {
-    color: var(--magenta);
+.menu .logo img {
+    height: 34px;
+    width: auto;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px;
-}
-
-.nav-links .logo {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none; /* Remove border from logo container */
-}
-
-.nav-links .logo img {
-    height: 40px; /* Adjust height to match other menu items */
-    width: auto;  /* Maintain aspect ratio */
-}
-
-.nav-links .separator {
-    border-left: 1px dotted var(--grey);
-    height: 40px; /* Match logo height */
+    gap: 0.25rem;
+    flex: 1;
 }
 
 .nav-links a {
-    color: var(--ink);
-    text-decoration: none;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--line);
-    background-color: transparent;
-    height: 45px;
-    letter-spacing: 0.08em;
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    color: var(--grey);
+    border-bottom: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
 }
 
-.nav-links a.logo {
-    border: none; /* Ensure no border on the logo link */
+/* Underline that grows in on hover and marks the current section */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem; right: 0.75rem; bottom: 0.15rem;
+    height: 2px;
+    background: var(--magenta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--magenta);
-    border-color: var(--magenta);
-    background-color: rgba(238, 2, 165, 0.08);
-    text-decoration: none;
+    color: var(--ink);
 }
 
-.nav-links a.logo:hover {
-    background-color: transparent;
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
 }
 
-.rss-link {
-    display: flex;
-    align-items: center;
-    height: 45px; /* Ensure height matches other nav links */
+.nav-links a.active {
+    color: var(--ink);
 }
 
-.rss-link a {
+.nav-links a.active::after {
+    background: var(--green);
+}
+
+.nav-links .rss-link {
+    margin-left: auto;
     color: var(--green);
-    text-decoration: none;
-    padding: 10px 20px; /* Adjust padding to match the size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    height: 100%; /* Ensure it fills the parent height */
-    box-sizing: border-box; /* Include padding and border in height */
+    font-size: 0.95rem;
 }
 
-.rss-link a:hover {
+.nav-links .rss-link::after {
+    display: none;
+}
+
+.nav-links .rss-link:hover {
     color: var(--magenta);
-    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    padding: 0 9px;
+    background: transparent;
+    border: 1px solid var(--line);
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
 }
 
 /* Responsive Menu */
 @media (max-width: 768px) {
     .hamburger {
-        display: block;
+        display: flex;
     }
 
     .nav-links {
         display: none;
-        flex-direction: column;
-        width: 100%;
         position: absolute;
-        top: 50px;
+        top: 64px;
         left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5rem 20px 1rem;
         background-color: var(--bg);
         border-bottom: 1px solid var(--line);
-    }
-
-    .nav-links a {
-        border: none;
-        text-align: center;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .nav-links .separator {
-        display: none;
+    .nav-links a {
+        padding: 0.85rem 0;
+        font-size: 0.85rem;
+    }
+
+    .nav-links a::after {
+        left: 0; right: auto; width: 2rem;
+    }
+
+    .nav-links .rss-link {
+        margin-left: 0;
     }
 }
 
 /* Main Content */
 main {
     flex: 1;
-    padding-top: 140px; /* Clear the fixed header */
+    padding-top: 4rem;
     color: var(--ink);
 }
 
