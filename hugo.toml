@@ -20,8 +20,8 @@ theme = "dfir-fi"
 
 [params]
   mainSections = ["blog"]
-  company_name = "Juho Jauhiainen"
-  company_link = "/about/whois"
+  company_name = "0J Consulting Oy"
+  company_link = "https://0j.fi"
 
 [[menu.main]]
   name = "Home"

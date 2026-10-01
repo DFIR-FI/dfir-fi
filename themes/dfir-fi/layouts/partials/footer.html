@@ -1,5 +1,6 @@
 <footer class="footer">
-    <div class="container">
-        <span class="text-muted">&copy; {{ now.Format "2006" }} <a href="{{ .Site.Params.company_link }}">{{ .Site.Params.company_name }}</a>. All rights reserved.</span>
-    </div>
+    <a class="mark-link" href="{{ .Site.Params.company_link }}" rel="noopener" aria-label="{{ .Site.Params.company_name }}">
+        <img class="mark" src="{{ "images/0j-mark.jpg" | relURL }}" width="120" height="120" alt="{{ .Site.Params.company_name }} mark">
+    </a>
+    <p class="legal">&copy; {{ now.Format "2006" }} dfir.fi &middot; operated by <a href="{{ .Site.Params.company_link }}" rel="noopener">{{ .Site.Params.company_name }}</a></p>
 </footer>

@@ -186,7 +186,6 @@ main {
     flex: 1;
     padding-top: 60px; /* Adjust for header height */
     margin-top: 60px; /* Adjust for header height */
-    padding-bottom: 80px; /* Ensure enough space for the footer */
     color: var(--ink);
 }
 
@@ -271,19 +270,40 @@ a:hover {
     word-break: break-word;
 }
 
-/* Footer */
+/* Footer: ownership by 0J Consulting Oy, laid out like the 0j.fi footer */
 footer.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: #cdb27b;
-    font-weight: bold;
-    background-color: #3f3d47; /* Background color of your choice */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
     text-align: center;
-    padding: 10px 20px;
-    z-index: 1001; /* Ensure it stays above other content */
+    padding: 2.5rem 20px 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--line);
     flex-shrink: 0;
+}
+
+.footer .mark-link {
+    border-bottom: 0;
+    line-height: 0;
+}
+
+.footer .mark {
+    width: clamp(72px, 14vw, 110px);
+    height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer .mark-link:hover .mark {
+    opacity: 1;
+}
+
+.footer .legal {
+    margin: 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--grey);
 }
 
 /* Cards: 0j-style boxes with the glitch stripe on top */
