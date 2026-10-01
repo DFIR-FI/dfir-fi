@@ -6,17 +6,29 @@
         {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
 
         {{ $author := site.GetPage (print "about/" .Params.author) }}
-        <div class="author-info">
-            <img src="{{ $author.Params.photo | relURL }}" class="author-avatar" alt="{{ $author.Params.name }}">
-            <div class="author-details">
-                <p><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></p>
-                <p class="meta">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                    · {{ i18n "readingTime" .Page.ReadingTime }}
-                    {{ range .Params.categories }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="chip">{{ . }}</a>{{ end }}
-                </p>
+        <dl class="post-meta">
+            <div class="post-meta-author">
+                <img src="{{ $author.Params.photo | relURL }}" class="author-avatar" alt="{{ $author.Params.name }}">
+                <div>
+                    <dt>Author</dt>
+                    <dd><a href="{{ $author.RelPermalink }}">{{ with $author.Params.name }}{{ . }}{{ else }}{{ $.Params.author }}{{ end }}</a></dd>
+                </div>
             </div>
-        </div>
+            <div>
+                <dt>Published</dt>
+                <dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></dd>
+            </div>
+            <div>
+                <dt>Reading time</dt>
+                <dd>{{ i18n "readingTime" .Page.ReadingTime }}</dd>
+            </div>
+            {{ with .Params.categories }}
+            <div>
+                <dt>Tags</dt>
+                <dd>{{ range . }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="chip">{{ . }}</a>{{ end }}</dd>
+            </div>
+            {{ end }}
+        </dl>
     </header>
 
     <div class="content prose">{{ .Content }}</div>
