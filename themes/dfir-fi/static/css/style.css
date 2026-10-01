@@ -301,8 +301,12 @@ body {
     background: var(--green);
 }
 
-.nav-links .rss-link {
+/* Sister site and RSS sit together at the right end of the menu */
+.nav-links .sister-link {
     margin-left: auto;
+}
+
+.nav-links .rss-link {
     color: var(--grey);
     font-size: 0.95rem;
 }
@@ -377,7 +381,7 @@ body {
         left: 0; right: auto; width: 2rem;
     }
 
-    .nav-links .rss-link {
+    .nav-links .sister-link {
         margin-left: 0;
     }
 }
