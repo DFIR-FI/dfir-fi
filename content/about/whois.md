@@ -86,6 +86,10 @@ Presentations can also be ordered through:
 
 | Association   | Description                                                            | Period/Date     |
 |---------------|------------------------------------------------------------------------|-----------------|
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2026         |
+| [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2026         |
+| [Malware Village](https://malwarevillage.org/) | Malware Villager @ DEF CON 33        | 08/2025         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 05/2025         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2025         |
 | [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2024         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2024         |
