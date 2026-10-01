@@ -2,6 +2,8 @@ baseURL = 'https://dfir.fi/'
 languageCode = 'en-us'
 title = 'DFIR Finland'
 theme = "dfir-fi"
+# Last-modified dates (.Lastmod, .GitInfo) come from git history
+enableGitInfo = true
 
 [outputs]
   home = ["HTML", "RSS"]
@@ -22,6 +24,13 @@ theme = "dfir-fi"
   mainSections = ["blog"]
   company_name = "0J Consulting Oy"
   company_link = "https://0j.fi"
+  # Commits that touched provider files without changing their content
+  # (theme migration, Deloitte's late add commit). While one of these is a
+  # provider's last commit, its "Modified" date falls back to "Added".
+  lastmodIgnoreCommits = [
+    "b6ad3389c0ba514c87a41f4d63eaf92d653b81c7", # New shiny theme for dfir.fi
+    "b17b66d68aecef17aa90f0a9722fc9f727f34a74", # Fixed few links and added deloitte
+  ]
 
 [[menu.main]]
   name = "Home"
