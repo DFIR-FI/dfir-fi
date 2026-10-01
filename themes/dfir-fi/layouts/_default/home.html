@@ -27,7 +27,12 @@
                 {{- $modified := .Lastmod }}
                 {{- with .GitInfo }}{{ if in site.Params.lastmodIgnoreCommits .Hash }}{{ $modified = $added }}{{ end }}{{ end }}
                 {{- if $modified.Before $added }}{{ $modified = $added }}{{ end }}
+                {{- /* Never modified since it was added: show a dash */}}
+                {{- if eq ($modified.Format "2006-01-02") ($added.Format "2006-01-02") }}
+                <td class="no-wrap muted" data-label="Modified"><span aria-label="Not modified">&mdash;</span></td>
+                {{- else }}
                 <td class="no-wrap" data-label="Modified"><time datetime="{{ $modified.Format "2006-01-02" }}">{{ $modified.Format "2006-01-02" }}</time></td>
+                {{- end }}
             </tr>
             {{ end }}
         </tbody>
