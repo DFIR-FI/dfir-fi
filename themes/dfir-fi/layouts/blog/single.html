@@ -1,25 +1,19 @@
 {{ define "main" }}
-<article class="wrap">
+<article class="wrap wrap-narrow">
     <header class="page-head post-head">
+        <a class="back-link" href="{{ "/blog/" | relURL }}">&larr; All posts</a>
         <h1>{{ .Title }}</h1>
         {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
-
-        {{ with .Params.categories }}
-        <div class="tags">
-            Tags «
-            {{ range . }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
-            »
-        </div>
-        {{ end }}
 
         {{ $author := site.GetPage (print "about/" .Params.author) }}
         <div class="author-info">
             <img src="{{ $author.Params.photo | relURL }}" class="author-avatar" alt="{{ $author.Params.name }}">
             <div class="author-details">
-                <p><strong><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></strong></p>
+                <p><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></p>
                 <p class="meta">
-                    <i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} |
-                    <i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                    · {{ i18n "readingTime" .Page.ReadingTime }}
+                    {{ range .Params.categories }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="chip">{{ . }}</a>{{ end }}
                 </p>
             </div>
         </div>
