@@ -31,6 +31,14 @@ enableGitInfo = true
     "b6ad3389c0ba514c87a41f4d63eaf92d653b81c7", # New shiny theme for dfir.fi
     "b17b66d68aecef17aa90f0a9722fc9f727f34a74", # Fixed few links and added deloitte
   ]
+  # Appended to provider and training links so they can see referrals from us
+  referralQuery = "utm_source=dfir.fi&utm_medium=referral"
+
+  # Sister site: linked from the menu, opens in the same tab with a glitch
+  # transition. csoc.fi sets this to dfir.fi, so the effect works both ways.
+  [params.sisterSite]
+    name = "CSOC.FI"
+    url = "https://csoc.fi/"
 
 [[menu.main]]
   name = "Home"
