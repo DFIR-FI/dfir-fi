@@ -68,7 +68,7 @@ Presentations can also be ordered through:
 | [GX-FA](https://www.credly.com/badges/e88699d2-50d1-45fb-86e3-0ebf62f00895) | GIAC Experienced Forensic Analyst                   | 10/2023 |
 | [GX-IH](https://www.credly.com/badges/bebb1a07-ba58-443f-bdb5-1d0b9fa120ea) | GIAC Experienced Incident Handler                   | 08/2023 |
 | [GCTI](https://www.credly.com/badges/6bab6427-24f1-4be7-b3e9-fc2af237ba5c)  | GIAC Cyber Threat Intelligence                      | 06/2023 |
-| [GREM](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)  | GIAC Reverse Engineering Malware                    | 06/2019 |
+| [GREM](https://www.credly.com/badges/efa428a6-f1f3-4fa2-a836-6a1141dfba48)  | GIAC Reverse Engineering Malware                    | 06/2019 |
 | [OSCP](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)  | Offensive Security Certified Professional           | 02/2019 |
 | [CISSP](https://www.credly.com/badges/1415ebbe-7d57-4237-8e79-6850c872c113) | Certified Information Systems Security Professional | 03/2018 |
 | [GCFA](https://www.credly.com/badges/a881a745-5a78-41d0-83c1-957c1997250c)  | GIAC Certified Forensic Analyst                     | 01/2018 |
