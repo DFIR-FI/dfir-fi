@@ -60,18 +60,19 @@ Presentations can also be ordered through:
 
 ## Certifications
 
-| Certification | Description                                           | Issued     |
-|---------------|-------------------------------------------------------|------------|
-| [GCFE](https://www.credly.com/badges/ed03d764-9f45-4134-89c6-78b9fee24097)          | GIAC Certified Forensic Examiner (GCFE)               | 08/2024    |
-| [GSP](https://www.credly.com/badges/a9eb5b47-43ae-4116-87c3-4263a7f17be1)           | GIAC Security Professional                            | 10/2023    |
-| [GX-FA](https://www.credly.com/badges/e88699d2-50d1-45fb-86e3-0ebf62f00895)         | GIAC Experienced Forensic Analyst                     | 10/2023    |
-| [GX-IH](https://www.credly.com/badges/bebb1a07-ba58-443f-bdb5-1d0b9fa120ea)         | GIAC Experienced Incident Handler Certification       | 08/2023    |
-| [GCTI](https://www.credly.com/badges/6bab6427-24f1-4be7-b3e9-fc2af237ba5c)          | GIAC Cyber Threat Intelligence                        | 06/2023    |
-| [GREM](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)          | GIAC Reverse Engineering Malware                      | 06/2019    |
-| [OSCP](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)          | Offensive Security Certified Professional             | 02/2019    |
-| [CISSP](https://www.credly.com/badges/1415ebbe-7d57-4237-8e79-6850c872c113) | Certified Information Systems Security Professional   | 03/2018    |
-| [GCFA](https://www.credly.com/badges/a881a745-5a78-41d0-83c1-957c1997250c)          | GIAC Certified Forensic Analyst                       | 01/2018    |
-| [GMON](https://www.credly.com/badges/0450a8b0-b0f2-47af-952f-097d76445396)          | GIAC Continuous Monitoring Certification              | 03/2017    |
+| Certification                                                               | Description                                         | Issued  |
+|-----------------------------------------------------------------------------|-----------------------------------------------------|---------|
+| CHFI                                                                        | Computer Hacking Forensic Investigator              | 10/2024 |
+| [GCFE](https://www.credly.com/badges/ed03d764-9f45-4134-89c6-78b9fee24097)  | GIAC Certified Forensic Examiner                    | 08/2024 |
+| [GSP](https://www.credly.com/badges/a9eb5b47-43ae-4116-87c3-4263a7f17be1)   | GIAC Security Professional                          | 10/2023 |
+| [GX-FA](https://www.credly.com/badges/e88699d2-50d1-45fb-86e3-0ebf62f00895) | GIAC Experienced Forensic Analyst                   | 10/2023 |
+| [GX-IH](https://www.credly.com/badges/bebb1a07-ba58-443f-bdb5-1d0b9fa120ea) | GIAC Experienced Incident Handler                   | 08/2023 |
+| [GCTI](https://www.credly.com/badges/6bab6427-24f1-4be7-b3e9-fc2af237ba5c)  | GIAC Cyber Threat Intelligence                      | 06/2023 |
+| [GREM](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)  | GIAC Reverse Engineering Malware                    | 06/2019 |
+| [OSCP](https://www.credly.com/badges/862ff895-9878-417d-859f-8a6b70c207a2)  | Offensive Security Certified Professional           | 02/2019 |
+| [CISSP](https://www.credly.com/badges/1415ebbe-7d57-4237-8e79-6850c872c113) | Certified Information Systems Security Professional | 03/2018 |
+| [GCFA](https://www.credly.com/badges/a881a745-5a78-41d0-83c1-957c1997250c)  | GIAC Certified Forensic Analyst                     | 01/2018 |
+| [GMON](https://www.credly.com/badges/0450a8b0-b0f2-47af-952f-097d76445396)  | GIAC Continuous Monitoring                          | 03/2017 |
 
 
 ## Education
