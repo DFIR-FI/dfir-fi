@@ -6,7 +6,6 @@ date:   2019-12-23 06:00:00
 categories: [general, tools]
 draft: false
 author: whois
-listImage: "default_post.png"
 ---
 
 ![image](/images/blog/disobey_owls.jpg)

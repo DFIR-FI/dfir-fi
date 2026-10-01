@@ -7,7 +7,6 @@ categories: [tools, training]
 vimeoId: 440640362
 draft: false
 author: whois
-listImage: "default_post.png"
 ---
 
 > MFA is usually considered secure. It however can be bypassed by phishing. I made this phishing demo using [drk1wi's](https://github.com/drk1wi) tool [Modlishka](https://github.com/drk1wi/Modlishka). The tool default templates are little bit outdated so here's also instructions how to make it work against G-Suite accounts. This is not a new thing, I just wanted to check if it still works. =)

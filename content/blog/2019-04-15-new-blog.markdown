@@ -6,7 +6,6 @@ date:   2019-04-14 13:00:00
 categories: [general]
 draft: false
 author: whois
-listImage: "default_post.png"
 outputs:
   - html
   - rss

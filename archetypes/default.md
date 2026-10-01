@@ -6,7 +6,6 @@ date:   {{ .Date }}
 categories: [general]
 draft: false
 author: whois
-listImage: "default_post.png"
 outputs:
   - html
   - rss

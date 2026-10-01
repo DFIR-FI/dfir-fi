@@ -6,7 +6,6 @@ date:   2020-02-19 09:00:00
 categories: [tools]
 draft: false
 author: whois
-listImage: "default_post.png"
 ---
 
 > RegRipper is a tool made by H. Carvey (keydet89) for Windows registry analysis. The tool is perl script that is made to run on Windows. The tool can be installed on Linux distros but I haven't yet found good instructions how to do it to share so I decided to make my own. I use the tool on the forensic courses I teach. Kudos to keydet89 for making this awesome tool.

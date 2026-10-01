@@ -103,8 +103,6 @@ h1, h2, h3, h4, h5, h6,
     max-width: var(--measure);
 }
 
-
-
 .prose h3 {
     margin-top: 2rem;
     font-size: 1.15rem;
@@ -147,12 +145,6 @@ body {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: hidden;
-}
-
-/* Error page */
-.centered {
-    padding: 20px;
-    text-align: center;
 }
 
 /* Header and Navigation: sticky, translucent, plain links */
@@ -646,12 +638,6 @@ footer.footer {
     margin-bottom: 0.5rem;
 }
 
-.facts {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
 @media (max-width: 768px) {
     .card {
         grid-template-columns: 1fr;
@@ -670,14 +656,6 @@ footer.footer {
 
 .card-title a:hover {
     color: var(--cyan);
-}
-
-.card-text {
-    color: var(--ink);
-}
-
-.text-muted {
-    color: var(--grey) !important;
 }
 
 /* Authors */
@@ -737,10 +715,6 @@ footer.footer {
 
 .author-card .author-name .name-link:hover {
     color: var(--cyan);
-}
-
-.author-card .author-title {
-    font-size: 1rem; /* Increase title font size */
 }
 
 .author-card .social-icons {

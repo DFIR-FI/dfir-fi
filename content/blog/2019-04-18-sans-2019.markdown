@@ -6,7 +6,6 @@ date:   2019-04-18 09:00:00
 categories: [training, general]
 draft: false
 author: whois
-listImage: "bsides_orlando.jpeg"
 ---
 
 ![Bsides Orlando](/images/blog/IMG_9079.JPG)

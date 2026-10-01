@@ -4,7 +4,6 @@ date: 2021-09-23T16:04:40Z
 categories: [general]
 draft: false
 author: whois
-listImage: "github.png"
 ---
 
 I’ve decided to change my blog from self-hosted jekyll site to auto deployed Github hugo page.

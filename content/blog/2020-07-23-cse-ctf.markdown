@@ -6,7 +6,6 @@ date:   2020-07-23 14:00:00
 categories: [tools, training]
 draft: false
 author: whois
-listImage: "default_post.png"
 ---
 
 > Cyber Security Essentials is a course series I was organizing in [HelSec](https://helsec.fi) with [Future Female](https://www.futurefemale.com). CSE had 6 lectures and the CTF was organized at the end of the course. The course was aimed for female who are interested working in technical side of the Cyber Security OR just started in the field. This CTF was made 99% by me alone and was purposed to be entry level. More information about the course series can be found from [here](https://www.futurefemale.com/news/future-female-x-helsec-cyber-security-essentials/).

@@ -6,7 +6,6 @@ date:   2019-07-07 18:46:00
 categories: [malware, forensics]
 draft: false
 author: whois
-listImage: "default_post.png"
 ---
 
 ![Me and my ex-wife](/images/blog/special_memory.jpg)
