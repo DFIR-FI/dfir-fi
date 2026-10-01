@@ -12,6 +12,7 @@
                 <th>Company</th>
                 <th>Website</th>
                 <th class="no-wrap">Added</th>
+                <th class="no-wrap">Modified</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,18 @@
                 <td class="no-wrap"><strong>{{ .Params.company }}</strong></td>
                 <td data-label="Website"><a href="{{ .Params.website }}" target="_blank" rel="noopener" title="{{ .Params.website }}">{{ strings.TrimPrefix "www." (urls.Parse .Params.website).Host }}</a></td>
                 <td class="no-wrap" data-label="Added">{{ .Date.Format "2006-01-02" }}</td>
+                {{- /* Last git commit date, unless that commit is on the ignore list
+                       (no real content change); never earlier than Added */}}
+                {{- $added := .Date }}
+                {{- $modified := .Lastmod }}
+                {{- with .GitInfo }}{{ if in site.Params.lastmodIgnoreCommits .Hash }}{{ $modified = $added }}{{ end }}{{ end }}
+                {{- if $modified.Before $added }}{{ $modified = $added }}{{ end }}
+                {{- /* Never modified since it was added: show a dash */}}
+                {{- if eq ($modified.Format "2006-01-02") ($added.Format "2006-01-02") }}
+                <td class="no-wrap muted" data-label="Modified"><span aria-label="Not modified">&mdash;</span></td>
+                {{- else }}
+                <td class="no-wrap" data-label="Modified"><time datetime="{{ $modified.Format "2006-01-02" }}">{{ $modified.Format "2006-01-02" }}</time></td>
+                {{- end }}
             </tr>
             {{ end }}
         </tbody>

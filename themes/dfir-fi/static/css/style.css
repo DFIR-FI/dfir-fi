@@ -497,6 +497,11 @@ a:hover {
     white-space: nowrap;
 }
 
+/* Placeholder cell, e.g. "—" for a provider that was never modified */
+.data-table td.muted {
+    color: var(--grey);
+}
+
 /* Tables inside posts scroll sideways instead of overflowing the page */
 .content table {
     display: block;
