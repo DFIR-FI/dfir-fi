@@ -7,6 +7,8 @@ dates only appear as free text on each course page, e.g.
 so every session we see is saved as its own file and kept once it is past.
 
 Rules:
+  Dates are read from both the "Koulutus järjestetään ..." sentence and the
+  "Ajankohta:" fact; a missing year is inferred from the date the page was seen.
   - New session            -> create content/training/elisa-<code>-<start>.md
   - Existing session       -> leave untouched
   - Future session no longer shown on its (successfully fetched) course page
@@ -53,8 +55,14 @@ DATE_PATTERNS = [
     re.compile(r"(\d{1,2})\." + DASH + r"(\d{1,2})\.(\d{1,2})\.(\d{4})"),
     # 21.9.2026
     re.compile(r"(\d{1,2})\.(\d{1,2})\.(\d{4})"),
+    # 30.9.–5.10.  (no year: inferred from the reference date)
+    re.compile(r"(\d{1,2})\.(\d{1,2})\." + DASH + r"(\d{1,2})\.(\d{1,2})\.(?!\d)"),
+    # 11.–16.11.  (no year: inferred from the reference date)
+    re.compile(r"(\d{1,2})\." + DASH + r"(\d{1,2})\.(\d{1,2})\.(?!\d)"),
 ]
-SESSION_MARKER = "järjestetään"
+# Dates appear in two places that Elisa doesn't keep in sync: the free-text
+# sentence "Koulutus järjestetään <dates>" and the "Ajankohta: <dates>" fact.
+SESSION_MARKERS = ("järjestetään", "Ajankohta:")
 
 
 class ImportError_(Exception):
@@ -93,8 +101,15 @@ def page_text(page):
     return re.sub(r"(\s*\|\s*)+", " | ", text)
 
 
-def parse_dates(fragment):
-    """Parse one session date expression -> (start, end) dates."""
+def infer_year(day, month, ref):
+    """Year for a date written without one: the occurrence nearest to ref."""
+    years = (ref.year - 1, ref.year, ref.year + 1)
+    return min(years, key=lambda y: abs((dt.date(y, month, day) - ref).days))
+
+
+def parse_dates(fragment, ref):
+    """Parse one session date expression -> (start, end) dates.
+    ref is the date the page was seen, used when the year is omitted."""
     for i, pat in enumerate(DATE_PATTERNS):
         m = pat.match(fragment)
         if not m:
@@ -107,8 +122,14 @@ def parse_dates(fragment):
                 start, end = dt.date(g[4], g[1], g[0]), dt.date(g[4], g[3], g[2])
             elif i == 2:
                 start, end = dt.date(g[3], g[2], g[0]), dt.date(g[3], g[2], g[1])
-            else:
+            elif i == 3:
                 start = end = dt.date(g[2], g[1], g[0])
+            elif i == 4:
+                year = infer_year(g[0], g[1], ref)
+                start, end = dt.date(year, g[1], g[0]), dt.date(year, g[3], g[2])
+            else:
+                year = infer_year(g[0], g[2], ref)
+                start, end = dt.date(year, g[2], g[0]), dt.date(year, g[2], g[1])
         except ValueError as e:
             raise ImportError_(f"invalid session date {fragment[:40]!r}: {e}") from e
         if end < start or (end - start).days > 31:
@@ -117,14 +138,16 @@ def parse_dates(fragment):
     raise ImportError_(f"unrecognised session date: {fragment[:60]!r}")
 
 
-def parse_sessions(text):
-    """All sessions announced with 'järjestetään <dates>' in the page text."""
+def parse_sessions(text, ref):
+    """All sessions announced in the page text (see SESSION_MARKERS)."""
     sessions = set()
-    for m in re.finditer(SESSION_MARKER, text, flags=re.I):
-        fragment = text[m.end():].lstrip(" |")
-        # "järjestetään etänä" etc. is not a date; a date we can't parse is an error
-        if fragment[:1].isdigit():
-            sessions.add(parse_dates(fragment))
+    for marker in SESSION_MARKERS:
+        for m in re.finditer(re.escape(marker), text, flags=re.I):
+            fragment = text[m.end():].lstrip(" |")
+            # "järjestetään etänä", "Toivo ajankohtaa" etc. are not dates;
+            # something that starts like a date but doesn't parse is an error
+            if fragment[:1].isdigit():
+                sessions.add(parse_dates(fragment, ref))
     return sorted(sessions)
 
 
@@ -133,7 +156,7 @@ def parse_fact(text, label):
     return m.group(1).strip().rstrip(".") if m else ""
 
 
-def parse_course_page(page):
+def parse_course_page(page, ref):
     text = page_text(page)
     if "Elisa" not in text:
         raise ImportError_("course page does not look like an Elisa page")
@@ -142,7 +165,7 @@ def parse_course_page(page):
     if m:
         desc = html.unescape(m.group(1)).strip()
     return {
-        "sessions": parse_sessions(text),
+        "sessions": parse_sessions(text, ref),
         "price": parse_fact(text, "Hinta"),
         "place": parse_fact(text, "Paikka"),
         "description": desc,
@@ -230,7 +253,7 @@ def plan_live(today):
     creates, deletes = [], []
     for code, meta in listing.items():
         time.sleep(REQUEST_PAUSE_S)
-        course = parse_course_page(fetch(f"{BASE}/kurssit/sans-{code}"))
+        course = parse_course_page(fetch(f"{BASE}/kurssit/sans-{code}"), today)
         info = {**meta, **{k: v for k, v in course.items() if v and k != "description"}}
         if not info.get("description"):
             info["description"] = course["description"]
@@ -262,12 +285,12 @@ def plan_wayback(today):
             continue
         code = m.group(1).lower()
         time.sleep(REQUEST_PAUSE_S)
+        snap_day = dt.datetime.strptime(ts[:8], "%Y%m%d").date()
         try:
-            course = parse_course_page(fetch(f"https://web.archive.org/web/{ts}id_/{original}"))
+            course = parse_course_page(fetch(f"https://web.archive.org/web/{ts}id_/{original}"), snap_day)
         except ImportError_ as e:
             print(f"  skip snapshot {ts} {code}: {e}", file=sys.stderr)
             continue
-        snap_day = dt.datetime.strptime(ts[:8], "%Y%m%d").date()
         info = {**listing.get(code, {}), **{k: v for k, v in course.items() if v and k != "description"}}
         if not info.get("description"):
             info["description"] = course["description"]
