@@ -1,0 +1,11 @@
+<article class="post-row">
+    <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+    <div class="post-body">
+        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="post-summary">{{ .Summary | plainify | truncate 180 }}</p>
+        <p class="meta">
+            {{ i18n "readingTime" .ReadingTime }}
+            {{ range .Params.categories }}<span class="chip">{{ . }}</span>{{ end }}
+        </p>
+    </div>
+</article>

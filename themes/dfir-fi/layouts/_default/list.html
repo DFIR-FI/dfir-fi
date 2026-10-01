@@ -3,19 +3,10 @@
     <header class="page-head">
         <h1>{{ .Title }} blog posts</h1>
     </header>
-    {{ range where .Pages.ByWeight ".Params.draft" "!=" true }}
-    <article class="card blog-card">
-        <img src="/images/blog/{{ .Params.listImage }}" class="card-img" alt="{{ .Title }}">
-        <div class="card-body">
-            <h2 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-            <p class="meta">By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a></p>
-            <p class="meta">
-                <i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} |
-                <i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}
-            </p>
-            <p>{{ .Summary }}</p>
-        </div>
-    </article>
-    {{ end }}
+    <div class="post-list">
+        {{ range where .Pages.ByWeight ".Params.draft" "!=" true }}
+            {{ partial "post-row.html" . }}
+        {{ end }}
+    </div>
 </div>
 {{ end }}
