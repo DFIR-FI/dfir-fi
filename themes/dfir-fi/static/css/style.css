@@ -179,6 +179,8 @@ body {
 }
 
 .menu .logo {
+    position: relative;
+    display: inline-block;
     border-bottom: 0;
     line-height: 0;
 }
@@ -186,6 +188,70 @@ body {
 .menu .logo img {
     height: 34px;
     width: auto;
+}
+
+/* Glitch on hover: magenta and green copies of the logo (tinted via mask)
+   flicker in offset slices while the logo itself jitters */
+.menu .logo::before,
+.menu .logo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    -webkit-mask: url("../images/logo.png") center / contain no-repeat;
+    mask: url("../images/logo.png") center / contain no-repeat;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu .logo::before {
+    background: var(--magenta);
+}
+
+.menu .logo::after {
+    background: var(--green);
+}
+
+.menu .logo:hover::before,
+.menu .logo:focus-visible::before {
+    opacity: 0.9;
+    animation: logo-glitch-a 0.8s steps(1) infinite;
+}
+
+.menu .logo:hover::after,
+.menu .logo:focus-visible::after {
+    opacity: 0.9;
+    animation: logo-glitch-b 0.8s steps(1) infinite;
+}
+
+.menu .logo:hover img,
+.menu .logo:focus-visible img {
+    animation: logo-jitter 0.8s steps(1) infinite;
+}
+
+@keyframes logo-glitch-a {
+    0%   { clip-path: inset(10% 0 60% 0); transform: translate(-3px, 0); }
+    20%  { clip-path: inset(55% 0 20% 0); transform: translate(3px, 0); }
+    40%  { clip-path: inset(0 0 85% 0);   transform: translate(-2px, 0); }
+    60%  { clip-path: inset(70% 0 5% 0);  transform: translate(2px, 0); }
+    80%  { clip-path: inset(30% 0 45% 0); transform: translate(-4px, 0); }
+    100% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, 0); }
+}
+
+@keyframes logo-glitch-b {
+    0%   { clip-path: inset(65% 0 10% 0); transform: translate(3px, 0); }
+    20%  { clip-path: inset(5% 0 75% 0);  transform: translate(-3px, 0); }
+    40%  { clip-path: inset(40% 0 35% 0); transform: translate(4px, 0); }
+    60%  { clip-path: inset(15% 0 70% 0); transform: translate(-2px, 0); }
+    80%  { clip-path: inset(80% 0 0 0);   transform: translate(2px, 0); }
+    100% { clip-path: inset(65% 0 10% 0); transform: translate(3px, 0); }
+}
+
+@keyframes logo-jitter {
+    0%, 100% { transform: none; }
+    20%      { transform: translate(1px, 0); }
+    40%      { transform: translate(-1px, 1px); }
+    60%      { transform: none; }
+    80%      { transform: translate(1px, -1px); }
 }
 
 .nav-links {
@@ -943,5 +1009,6 @@ code {
     *::before,
     *::after {
         transition: none !important;
+        animation: none !important;
     }
 }
