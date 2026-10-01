@@ -1,11 +1,14 @@
 {{- with . }}
-<article class="card training-card">
-    <img src="/images/{{ .Params.listImage }}" class="card-img" alt="{{ .Params.provider }}">
+<article class="card training-card{{ if not .Params.listImage }} no-image{{ end }}">
+    {{- with .Params.listImage }}
+    <img src="/images/{{ . }}" class="card-img" alt="{{ $.Params.provider }}">
+    {{- end }}
     <div class="card-body">
-        <p class="meta">{{ time .Params.coursedate | time.Format "2006-01-02" }} · {{ .Params.provider }} · {{ .Params.language }}</p>
+        <p class="meta">{{ partial "course-dates.html" . }} · {{ .Params.provider }} · {{ .Params.language }}</p>
         <h3 class="card-title"><a href="{{ partial "referral-url.html" .Params.courselink }}" target="_blank" rel="noopener">{{ .Title }}</a></h3>
         <p>{{ .Summary | plainify }}</p>
-        <p class="meta">Price: <a href="{{ partial "referral-url.html" .Params.courselink }}" target="_blank" rel="noopener">{{ .Params.pricing }}</a> · By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a></p>
+        <p class="meta">Price: <a href="{{ partial "referral-url.html" .Params.courselink }}" target="_blank" rel="noopener">{{ .Params.pricing }}</a>
+            {{- with .Params.author }} · By <a href="/about/{{ . }}">{{ . }}</a>{{ end }}</p>
     </div>
 </article>
 {{- end }}
