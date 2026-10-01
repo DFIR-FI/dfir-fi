@@ -518,3 +518,12 @@ code {
     font-size: 1rem; 
     margin-right: 5px; 
 }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
