@@ -1,0 +1,3 @@
+[submodule "themes/site-theme"]
+	path = themes/site-theme
+	url = https://github.com/zero-jargon/site-theme.git

@@ -1,8 +1,0 @@
-{{- /* Course date for a training page: "2026-09-21", or a range
-       "2026-09-21 – 2026-09-26" when courseend is set.
-       Usage: {{ partial "course-dates.html" . }} */ -}}
-{{- $dates := time .Params.coursedate | time.Format "2006-01-02" -}}
-{{- with .Params.courseend -}}
-  {{- $dates = printf "%s – %s" $dates (time . | time.Format "2006-01-02") -}}
-{{- end -}}
-{{- return $dates -}}
