@@ -14,7 +14,8 @@
                  var(--grey)    75% 100%);
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
             Arial, sans-serif;
-    --page: 760px; /* one content width for every page, header and footer */
+    --page: 1060px;  /* one page width for every page, header and footer */
+    --measure: 75ch; /* comfortable line length for long-form text */
     --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
             Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
@@ -84,6 +85,14 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Reading column for long-form text */
+/* Long-form text keeps a readable line length, on the shared left edge */
+.prose,
+.lede,
+.post-head,
+.profile-head + .lede {
+    max-width: var(--measure);
+}
+
 .prose {
     line-height: 1.75;
 }
