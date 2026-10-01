@@ -1,12 +1,34 @@
+/* Palette and type follow 0j.fi (0J Consulting Oy) */
+:root {
+    --bg:      #000000;
+    --grey:    #7a8d8b;
+    --magenta: #ee02a5;
+    --green:   #4bc500;
+    --cyan:    #009aae;
+    --ink:     #d7e0de;
+    --line:    rgba(122, 141, 139, 0.35);
+    --stripe:  linear-gradient(90deg,
+                 var(--magenta) 0 25%,
+                 var(--green)   25% 50%,
+                 var(--cyan)    50% 75%,
+                 var(--grey)    75% 100%);
+    --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
+            Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+
 /* Global Styles */
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #0c0c0d;
-    color: #cdb27b;
+    font-family: var(--mono);
+    background-color: var(--bg);
+    color: var(--ink);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 /* Error page */
@@ -143,29 +165,38 @@ main {
     padding-top: 60px; /* Adjust for header height */
     margin-top: 60px; /* Adjust for header height */
     padding-bottom: 80px; /* Ensure enough space for the footer */
-    color: #ccc;
+    color: var(--ink);
 }
 
 h1 {
     text-align: center;
-    color: #cdb27b;
+    color: var(--ink);
+    text-shadow: 1px 0 var(--magenta), -1px 0 var(--green);
 }
 
 h2 {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
-    color: #cdb27b;
-    font-size: 1.5rem;
+    color: var(--cyan);
+    font-size: 1.1rem;
     font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h3, h4, h5, h6 {
+    color: var(--cyan);
 }
 
 a {
-    color: #ccc;
-    font-weight: bold;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(75, 197, 0, 0.4);
 }
 
 a:hover {
-    color: #cdb27b;
+    color: var(--magenta);
+    border-bottom-color: var(--magenta);
     text-decoration: none;
 }
 
@@ -369,12 +400,18 @@ footer.footer {
     max-width: 100%;
 }   
 
+pre {
+    background: rgba(122, 141, 139, 0.06);
+    border: 1px solid var(--line);
+    padding: 1rem;
+}
+
 pre code {
-    color: #8b7d73; 
+    color: var(--ink);
 }
 
 code {
-    color: #cdb27b; 
+    color: var(--green);
 }
 
 .tags {
