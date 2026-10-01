@@ -1,7 +1,9 @@
 baseURL = 'https://dfir.fi/'
 languageCode = 'en-us'
 title = 'DFIR Finland'
-theme = "dfir-fi"
+# Shared theme (git submodule) from github.com/zero-jargon/site-theme;
+# theme changes go there, not into this repo
+theme = "site-theme"
 # Last-modified dates (.Lastmod, .GitInfo) come from git history
 enableGitInfo = true
 
@@ -24,6 +26,10 @@ enableGitInfo = true
   mainSections = ["blog"]
   company_name = "0J Consulting Oy"
   company_link = "https://0j.fi"
+  # Site identity for the shared theme
+  brand = "DFIR-FI"              # <title> prefix, logo alt/aria-label
+  siteName = "dfir.fi"           # footer copyright line
+  trainingTitle = "DFIR Training" # Training page heading
   # Commits that touched provider files without changing their content
   # (theme migration, Deloitte's late add commit). While one of these is a
   # provider's last commit, it counts as not modified ("—" in the list).
