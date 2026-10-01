@@ -1,36 +1,30 @@
 {{ define "main" }}
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <!-- Title -->
-            <h1>{{ .Title }}</h1>
-            <h2 class="subtitle">{{ .Params.subtitle }}</h2>
+<article class="wrap">
+    <header class="page-head post-head">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
 
-            <!-- Tags -->
-            <div class="tags">
-                Tags «
-                {{ range .Params.categories }}
-                <a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-                {{ end }}
-                »
-            </div>
-
-            <!-- Author Information Box -->
-            {{ $author := site.GetPage (print "about/" .Params.author) }}
-            <div class="author-info">
-                <div class="author-photo">
-                    <img src="{{ .Site.BaseURL }}{{ $author.Params.photo }}" alt="{{ $author.Params.name }}">
-                </div>
-                <div class="author-details">
-                    <p><strong><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></strong></p>
-                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} | </small>
-                    <small class="text-muted"><i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}</small>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="content">{{ .Content }}</div>
+        {{ with .Params.categories }}
+        <div class="tags">
+            Tags «
+            {{ range . }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
+            »
         </div>
-    </div>
-</div>
+        {{ end }}
+
+        {{ $author := site.GetPage (print "about/" .Params.author) }}
+        <div class="author-info">
+            <img src="{{ $author.Params.photo | relURL }}" class="author-avatar" alt="{{ $author.Params.name }}">
+            <div class="author-details">
+                <p><strong><a href="{{ $author.RelPermalink }}">{{ .Params.author }}</a></strong></p>
+                <p class="meta">
+                    <i class="fa-regular fa-calendar"></i> {{ .Date.Format "January 2, 2006" }} |
+                    <i class="fa-regular fa-clock"></i> {{ i18n "readingTime" .Page.ReadingTime }}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="content prose">{{ .Content }}</div>
+</article>
 {{ end }}

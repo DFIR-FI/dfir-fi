@@ -16,6 +16,66 @@
             Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
 
+/* Minimal reset (replaces Bootstrap's reboot) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, figure {
+    margin: 0 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+blockquote {
+    padding-left: 1rem;
+    border-left: 3px solid var(--magenta);
+    color: var(--grey);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 2rem 0;
+}
+
+/* Layout */
+.wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-head {
+    margin-bottom: 2.5rem;
+}
+
+.lede {
+    color: var(--ink);
+}
+
+.lede p:last-child {
+    margin-bottom: 0;
+}
+
+.meta {
+    margin: 0 0 0.25rem;
+    font-size: 0.8rem;
+    color: var(--grey);
+}
+
 /* Global Styles */
 body {
     margin: 0;
@@ -25,6 +85,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -38,7 +99,7 @@ body {
 }
 
 /* Header and Navigation */
-header {
+.site-header {
     background-color: var(--bg);
     border-bottom: 1px solid var(--line);
     padding: 10px;
@@ -49,7 +110,7 @@ header {
 }
 
 /* 0j glitch stripe along the top edge */
-header::before {
+.site-header::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -184,12 +245,12 @@ header::before {
 /* Main Content */
 main {
     flex: 1;
-    padding-top: 60px; /* Adjust for header height */
-    margin-top: 60px; /* Adjust for header height */
+    padding-top: 140px; /* Clear the fixed header */
     color: var(--ink);
 }
 
 h1 {
+    font-size: 2.25rem;
     text-align: center;
     color: var(--ink);
     text-shadow: 1px 0 var(--magenta), -1px 0 var(--green);
@@ -222,7 +283,7 @@ a:hover {
 }
 
 /* Tables (provider list on the front page and tables inside posts) */
-.table,
+.data-table,
 .content table {
     width: 100%;
     border-collapse: collapse;
@@ -231,8 +292,8 @@ a:hover {
     border: 1px solid var(--line);
 }
 
-.table th,
-.table td,
+.data-table th,
+.data-table td,
 .content table th,
 .content table td {
     border: 0;
@@ -242,7 +303,7 @@ a:hover {
     vertical-align: top;
 }
 
-.table thead th,
+.data-table thead th,
 .content table th {
     background-color: transparent;
     color: var(--cyan);
@@ -252,12 +313,12 @@ a:hover {
     text-transform: uppercase;
 }
 
-.table-striped tbody tr:nth-of-type(odd),
+.data-table tbody tr:nth-of-type(odd),
 .content table tr:nth-child(even) {
     background-color: rgba(122, 141, 139, 0.06);
 }
 
-.table tbody tr:hover {
+.data-table tbody tr:hover {
     background-color: rgba(0, 154, 174, 0.08);
 }
 
@@ -265,9 +326,44 @@ a:hover {
     white-space: nowrap;
 }
 
-.allow-wrap {
-    word-wrap: break-word;
-    word-break: break-word;
+/* Tables inside posts scroll sideways instead of overflowing the page */
+.content table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Provider table: rows become stacked blocks on phones */
+@media (max-width: 600px) {
+    .providers thead {
+        display: none;
+    }
+
+    .providers,
+    .providers tbody,
+    .providers tr,
+    .providers td {
+        display: block;
+    }
+
+    .providers tr {
+        padding: 0.75rem 0.25rem;
+        border-top: 1px dotted rgba(122, 141, 139, 0.3);
+    }
+
+    .providers td {
+        border: 0;
+        padding: 0.1rem 0.5rem;
+    }
+
+    .providers td[data-label]::before {
+        content: attr(data-label) ": ";
+        color: var(--grey);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
 }
 
 /* Footer: ownership by 0J Consulting Oy, laid out like the 0j.fi footer */
@@ -329,8 +425,42 @@ footer.footer {
     z-index: 1;
 }
 
+.card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    margin-bottom: 1rem;
+}
+
 .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.facts {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-title {
+    margin-top: 2rem;
 }
 
 .card-title,
@@ -351,9 +481,36 @@ footer.footer {
     color: var(--grey) !important;
 }
 
+/* Authors */
+.author-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-grid .author-card {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding-left: 1.25rem;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Author Card */
 .author-card .author-name {
-    font-size: 2.5rem; /* Increase name font size */
+    font-size: 1.75rem;
     font-weight: bold;
 }
 
@@ -418,10 +575,9 @@ footer.footer {
     padding: 10px;
 }
 
-.author-photo img {
+.author-info .author-avatar {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     margin-right: 15px;
 }
 
@@ -497,8 +653,9 @@ code {
 }
 
 .author-content {
+    display: block;
     padding: 30px;
-    width: 100%;
+    text-align: center;
 }
 
 .author-content .introtext {

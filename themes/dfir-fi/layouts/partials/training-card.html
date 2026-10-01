@@ -1,0 +1,17 @@
+{{- with .page }}
+<article class="card blog-card{{ if $.past }} past{{ end }}">
+    <img src="/images/{{ .Params.listImage }}" class="card-img" alt="{{ .Title }}">
+    <div class="card-body">
+        <h2 class="card-title"><a href="{{ .Params.courselink }}" target="_blank" rel="noopener">{{ .Title }}</a></h2>
+        <p class="meta">By <a href="/about/{{ .Params.author }}">{{ .Params.author }}</a></p>
+        <ul class="meta facts">
+            <li{{ if $.past }} class="past-old-info"{{ end }}><i class="fa-regular fa-calendar"></i> When: {{ time .Params.coursedate | time.Format "2006-01-02" }}</li>
+            <li><i class="fa-solid fa-coins"></i> Price: <a href="{{ .Params.courselink }}" target="_blank" rel="noopener">{{ .Params.pricing }}</a></li>
+            <li><i class="fa-solid fa-language"></i> Language: {{ .Params.language }}</li>
+            <li><i class="fas fa-globe"></i> Website: <a href="{{ .Params.courselink }}" target="_blank" rel="noopener">{{ .Params.provider }}</a></li>
+            <li><i class="fa-regular fa-calendar"></i> Published: {{ .Date.Format "2006-01-02" }}</li>
+        </ul>
+        <p>{{ .Summary }}</p>
+    </div>
+</article>
+{{- end }}
