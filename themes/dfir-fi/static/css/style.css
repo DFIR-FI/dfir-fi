@@ -14,6 +14,7 @@
                  var(--grey)    75% 100%);
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
             Arial, sans-serif;
+    --page: 760px; /* one content width for every page, header and footer */
     --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
             Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
@@ -63,42 +64,28 @@ h1, h2, h3, h4, h5, h6,
 /* Layout */
 .wrap {
     width: 100%;
-    max-width: 1100px;
+    max-width: calc(var(--page) + 40px);
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.wrap-narrow {
-    max-width: calc(72ch + 40px);
 }
 
 .page-head {
     margin-bottom: 2.5rem;
 }
 
+.page-head .lede {
+    margin-top: 1rem;
+}
+
 .lede {
-    max-width: 72ch;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
     color: var(--ink);
 }
 
 /* Reading column for long-form text */
 .prose {
-    max-width: 72ch;
     line-height: 1.75;
-}
-
-.prose h2 {
-    margin-top: 2.5rem;
-    padding: 0;
-    color: var(--ink);
-    font-size: 1.4rem;
-    letter-spacing: normal;
-    text-transform: none;
-}
-
-.prose h2::before {
-    content: "# ";
-    color: var(--cyan);
 }
 
 .prose h3 {
@@ -110,7 +97,8 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 0.25rem;
 }
 
-.lede p:last-child {
+.lede p:last-child,
+.page-head .lede:last-child {
     margin-bottom: 0;
 }
 
@@ -167,7 +155,7 @@ body {
     display: flex;
     align-items: center;
     gap: 2rem;
-    max-width: 1100px;
+    max-width: calc(var(--page) + 40px);
     height: 64px;
     margin: 0 auto;
     padding: 0 20px;
@@ -325,14 +313,16 @@ h1 {
     text-shadow: 1px 0 var(--magenta), -1px 0 var(--green);
 }
 
+/* One h2 style everywhere: ink text with a cyan '#' marker */
 h2 {
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    color: var(--ink);
+    font-size: 1.4rem;
+}
+
+h2::before {
+    content: "# ";
     color: var(--cyan);
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
 }
 
 h3, h4, h5, h6 {
@@ -473,7 +463,6 @@ footer.footer {
 
 /* Cards: 0j-style boxes with the glitch stripe on top */
 .card,
-.author-content,
 .author-info {
     position: relative;
     color: var(--ink);
@@ -484,7 +473,6 @@ footer.footer {
 }
 
 .card::before,
-.author-content::before,
 .author-info::before {
     content: "";
     position: absolute;
@@ -528,8 +516,8 @@ footer.footer {
     }
 }
 
-.section-title {
-    margin-top: 2rem;
+.section-title-past::before {
+    color: var(--grey);
 }
 
 .card-title,
@@ -564,16 +552,29 @@ footer.footer {
     padding-left: 1.25rem;
 }
 
-.about-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    gap: 2rem;
-    align-items: start;
+/* Author page: profile header in the same column as everything else */
+.profile-head {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-@media (max-width: 768px) {
-    .about-layout {
-        grid-template-columns: 1fr;
+.profile-head h1 {
+    margin-bottom: 0.25rem;
+}
+
+.profile-head .social-icons {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+    .profile-head {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -649,11 +650,12 @@ footer.footer {
 }
 
 .post-title {
-    margin-bottom: 0.4rem;
+    margin: 0 0 0.4rem;
     font-size: 1.2rem;
-    letter-spacing: normal;
-    text-transform: none;
-    padding: 0;
+}
+
+.post-title::before {
+    content: none;
 }
 
 /* Whole row is clickable through the title link */
@@ -769,10 +771,6 @@ a.chip:hover {
 
 /* Blog content */
 
-.post-head {
-    max-width: 72ch;
-}
-
 .back-link {
     display: inline-block;
     margin-bottom: 1.25rem;
@@ -857,35 +855,6 @@ pre code {
 
 code {
     color: var(--green);
-}
-
-/* Author Box Styling */
-.author-box {
-    width: 100%;
-}
-
-.author-content {
-    display: block;
-    padding: 30px;
-    text-align: center;
-}
-
-.author-content .introtext {
-    padding-top: 1rem;
-}
-
-.author-content h1 {
-    padding-top: 1rem;
-    font-weight: bold;
-}
-
-.author-content p {
-    color: var(--grey);
-}
-
-.author-content .social-icons a {
-    font-size: 1rem; 
-    margin-right: 5px; 
 }
 
 /* Respect reduced-motion preferences */
