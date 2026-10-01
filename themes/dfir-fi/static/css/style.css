@@ -126,6 +126,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Global Styles */
+
+/* Always reserve the scrollbar's space so the layout (and the menu)
+   doesn't shift sideways between short and long pages */
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     margin: 0;
     font-family: var(--sans);
