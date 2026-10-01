@@ -30,7 +30,7 @@
         <tbody>
             {{ range sort . "Params.coursedate" "desc" }}
             <tr>
-                <td class="no-wrap">{{ time .Params.coursedate | time.Format "2006-01-02" }}</td>
+                <td class="no-wrap">{{ partial "course-dates.html" . }}</td>
                 <td><a href="{{ partial "referral-url.html" .Params.courselink }}" target="_blank" rel="noopener">{{ .Title }}</a></td>
                 <td data-label="Provider">{{ .Params.provider }}</td>
                 <td data-label="Language">{{ .Params.language }}</td>

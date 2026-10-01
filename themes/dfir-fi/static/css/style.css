@@ -833,6 +833,11 @@ a.chip:hover {
     grid-template-columns: 160px minmax(0, 1fr);
 }
 
+/* Courses without a provider image (e.g. imported Elisa SANS sessions) */
+.training-card.no-image {
+    grid-template-columns: 1fr;
+}
+
 .training-card .card-img {
     aspect-ratio: 1;
     height: auto;
