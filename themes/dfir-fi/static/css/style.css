@@ -288,14 +288,14 @@ footer.footer {
     line-height: 0;
 }
 
-.footer .mark {
+.footer .footer-mark {
     width: clamp(72px, 14vw, 110px);
     height: auto;
     opacity: 0.9;
     transition: opacity 0.3s ease;
 }
 
-.footer .mark-link:hover .mark {
+.footer .mark-link:hover .footer-mark {
     opacity: 1;
 }
 
