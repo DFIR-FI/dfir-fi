@@ -16,6 +16,7 @@
             Arial, sans-serif;
     /* Smooth magenta-green-cyan glow used for accent edges and hover bars */
     --glow:    linear-gradient(180deg, var(--magenta), var(--green), var(--cyan));
+    --glow-x:  linear-gradient(90deg, var(--magenta), var(--green), var(--cyan));
     --page: 1060px;  /* one page width for every page, header and footer */
     --measure: 85ch; /* reading line length for blog post bodies */
     --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code",
@@ -633,9 +634,13 @@ footer.footer {
     font-weight: bold;
 }
 
+/* Gradient underline instead of the plain link border */
 .author-card .author-name .name-link {
     color: var(--ink);
     text-shadow: 1px 0 var(--magenta), -1px 0 var(--green);
+    border-bottom: 0;
+    padding-bottom: 3px;
+    background: var(--glow-x) left bottom / 100% 2px no-repeat;
 }
 
 .author-card .author-name .name-link:hover {
