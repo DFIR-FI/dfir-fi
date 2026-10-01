@@ -100,7 +100,7 @@ Presentations can also be ordered through:
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle        | 2021         |
 | [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2021         |
 | [Turvakäräjät](https://turvakarajat.fi/)  | Podcaster, hot security topics in Finnish with my friends Laura & Antti | 05/2020         |
-| KyberVPK      | Hacker volunteering with a group helping organisations KyberVPK        | 03/2020->       |
+| [KyberVPK](https://kybervpk.fi/) | Hacker volunteering with a group helping organisations KyberVPK        | 03/2020->       |
 | [HelSec](https://helsec.fi)        | Chairperson                    | 09/2019-12/2021         |
 | [SANS](https://www.sans.org/digital-forensics-incident-response/coin-holders/#I-L)          | Lethal Forensicator Coin Holder: Reverse-Engineering Malware Analysis Master Coin (FOR610) | 04/2019    |
 | [SANS](https://www.sans.org/digital-forensics-incident-response/coin-holders/#I-L)          | Lethal Forensicator Coin Holder: DFIR NetWars Champion Coin            | 04/2019         |
