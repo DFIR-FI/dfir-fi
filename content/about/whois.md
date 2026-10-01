@@ -49,7 +49,7 @@ Presentations can also be ordered through:
 
 | Employer           | Main responsibilities                       | Period          |
 |--------------------|--------------------------------------------|-----------------|
-| [DataFlow Forensics](https://df-f.com/) | Threat Detectiong Engineer (contractor) | 07/2026->       |
+| [DataFlow Forensics](https://df-f.com/) | Threat Detection Engineer (contractor) | 07/2026->       |
 | [0J Consulting](https://0j.fi) | Self-Employed Entrepreneur  | 07/2026->       |
 | [Accenture](https://www.accenture.com/fi-en/services/cybersecurity/cyber-resilience)          | DFIR, CTI, Malware analysis, Team lead     | 02/2022-07/2026 |
 | [NCSC-FI](https://www.kyberturvallisuuskeskus.fi/en/homepage)            | Malware analysis, public speaking, DFIR    | 01/2021-02/2022 |
@@ -86,33 +86,33 @@ Presentations can also be ordered through:
 
 | Association   | Description                                                            | Period/Date     |
 |---------------|------------------------------------------------------------------------|-----------------|
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2026         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2026         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2026         |
 | [Malware Village](https://malwarevillage.org/) | Malware Villager @ DEF CON 33        | 08/2025         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 05/2025         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 05/2025         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2025         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2024         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2024         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle, Core Organizer        | 2024         |
 | [TIVI](https://www.tivi.fi/aiheet/tivi-in-english)          | One of the top 100 IT influencers in Finland                           | 12/2023         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2023         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2023         |
 | [HelSec](https://helsec.fi)        | Vice Member of the Board                    | 03/2023-12/2023         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle        | 2023         |
 | [TIVI](https://www.tivi.fi/aiheet/tivi-in-english)          | One of the top 100 IT influencers in Finland                           | 12/2022         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2022         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2022         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle        | 2022         |
 | [HelSec](https://helsec.fi)        | Member of the Board                    | 01/2022-03/2023         |
 | [TIVI](https://www.tivi.fi/aiheet/tivi-in-english)          | One of the top 100 IT influencers in Finland                           | 12/2021         |
 | [Disobey](https://disobey.fi/)        | Head of Hacker Puzzle        | 2021         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2021         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2021         |
 | [Turvakäräjät](https://turvakarajat.fi/)  | Podcaster, hot security topics in Finnish with my friends Laura & Antti | 05/2020         |
 | [KyberVPK](https://kybervpk.fi/) | Hacker volunteering with a group helping organisations KyberVPK        | 03/2020->       |
 | [HelSec](https://helsec.fi)        | Chairperson                    | 09/2019-12/2021         |
 | [SANS](https://www.sans.org/digital-forensics-incident-response/coin-holders/#I-L)          | Lethal Forensicator Coin Holder: Reverse-Engineering Malware Analysis Master Coin (FOR610) | 04/2019    |
 | [SANS](https://www.sans.org/digital-forensics-incident-response/coin-holders/#I-L)          | Lethal Forensicator Coin Holder: DFIR NetWars Champion Coin            | 04/2019         |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2019         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2019         |
 | [HelSec](https://helsec.fi)        | Co-Founder of Helsinki Security Meetup group HelSec                    | 12/2018         |
 | [MPK](https://mpk.fi/en/)           | Instructor for National Defence Training Association of Finland (MPK)  | 08/2018->       |
-| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE excercise Locked Shields        | 04/2018         |
+| [CCDCOE](https://ccdcoe.org/)        | Member of Team Finland for NATO CCDCOE exercise Locked Shields        | 04/2018         |
 
 
 
