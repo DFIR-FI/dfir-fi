@@ -18,33 +18,6 @@ introtext: Juho works as a contractor / threat detection engineer for a mobile f
 
 Since 2019, I have been giving presentations and training sessions. The presentations and trainings have covered everything from security basics to technical descriptions of malware or how to protect against security breaches. At security conferences in Finland and abroad, I generally represent my employers but as a side job I sell talks and trainings to organisations. If you are interested in training or presentations (no consulting), please contact me by email (juho[at]0j.fi) and we can agree on further details.
 
-In general, I charge according to the price list below. Travel expenses (kilometres, hotel if applicable) will be added to the amount.
-
-**Presentations**
-
-| Length | Price           |
-|--------|------------------|
-| 30min  | 1200e (alv0%)    |
-| 45min  | 1500e (alv0%)    |
-| 60min  | 1800e (alv0%)    |
-
----- 
-
-**Private DFIR Training\***
-
-| Length | Price           |
-|--------|------------------|
-| 1d | 3000e (alv0%)    |
-| 2d  | 5500e (alv0%)    |
-| 5d  | 12000e (alv0%)    |
-
-*) Unlimited seats, meant for companies
-
----- 
-
-Presentations can also be ordered through:
-- [MySpeaker](https://myspeaker.fi/puhujat/juho-jauhiainen/)
-
 ## Employment history
 
 | Employer           | Main responsibilities                       | Period          |
